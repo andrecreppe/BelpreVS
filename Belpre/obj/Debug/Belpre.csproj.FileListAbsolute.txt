@@ -1,0 +1,109 @@
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\Belpre.exe
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\Belpre.pdb
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\Npgsql.dll
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\Npgsql.xml
+C:\Users\ra1757047\Desktop\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.csprojResolveAssemblyReference.cache
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.csproj.GenerateResource.Cache
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.exe
+C:\Users\ra1757047\Desktop\Belpre\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\Npgsql.dll
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\Npgsql.xml
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.csprojAssemblyReference.cache
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.csproj.GenerateResource.cache
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.csproj.CopyComplete
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C# - Belpre\Belpre\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.dll
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.xml
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csprojAssemblyReference.cache
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.GenerateResource.cache
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CopyComplete
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\Belpre.exe
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\Belpre.pdb
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\Npgsql.dll
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\Npgsql.xml
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.csprojResolveAssemblyReference.cache
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.csproj.GenerateResource.Cache
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.exe
+C:\Users\ra1757051\Desktop\BelpreVS\Belpre\obj\Debug\Belpre.pdb
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\Belpre.exe
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\Belpre.pdb
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\Npgsql.dll
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\Npgsql.xml
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.csprojResolveAssemblyReference.cache
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.csproj.GenerateResource.Cache
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.exe
+C:\Users\ra1757051\Desktop\Andre01-Bella03\BelpreVS\Belpre\obj\Debug\Belpre.pdb
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.pdb
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.dll
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.xml
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csprojResolveAssemblyReference.cache
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmMASTER.resources
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.GenerateResource.Cache
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.exe
+C:\Users\ra1757047\Desktop\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.dll
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\Npgsql.xml
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csprojAssemblyReference.cache
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmMASTER.resources
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.GenerateResource.cache
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.csproj.CopyComplete
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\Belpre\BelpreVS\Belpre\obj\Debug\Belpre.frmPacientes.resources
