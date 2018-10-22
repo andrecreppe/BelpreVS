@@ -14,6 +14,9 @@ namespace Belpre
 {
     public partial class frmLogin : Form
     {
+        //Criptografia
+        Criptografia cripto = new Criptografia();
+
         //Dados de ROOT
         private string cpf_mestre = "12345678901";
         public string getCPF_Mestre()
@@ -89,7 +92,8 @@ namespace Belpre
                 if (dr.Read())
                 {
                     //Testar se ele é médico
-                    if (txtSenha.Text == dr["senha"].ToString() && !radPaciente.Checked)
+                    if(cripto.ComparaMD5(txtSenha.Text, dr["senha"].ToString())
+                        && !radPaciente.Checked)
                     {
                         dr.Close();
 
@@ -99,7 +103,8 @@ namespace Belpre
                         this.Close();
                     }
                     //Testar se ele 
-                    else if(txtSenha.Text == dr["senha"].ToString() && radPaciente.Checked)
+                    else if(cripto.ComparaMD5(txtSenha.Text, dr["senha"].ToString())
+                        && radPaciente.Checked)
                     {
                         dr.Close();
 
@@ -112,16 +117,26 @@ namespace Belpre
                     else
                     {
                         dr.Close();
+
                         MessageBox.Show("SENHA inválida! Redigite.", "Belpre",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        txtSenha.Text = "";
                     }
                 }
                 //Erro no CPF
                 else
                 {
                     dr.Close();
+
                     MessageBox.Show("CPF invalido ou inexistente! Redigite.", "Belpre",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    mskCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    mskCPF.Text = "";
+                    mskCPF.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                    txtSenha.Text = "";
                 }
             }
             catch(Exception ex)

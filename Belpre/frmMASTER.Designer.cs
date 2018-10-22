@@ -31,23 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMASTER));
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.lblConsulta = new System.Windows.Forms.Label();
             this.picAdmin = new System.Windows.Forms.PictureBox();
             this.lblIntro = new System.Windows.Forms.Label();
-            this.lblCadastro = new System.Windows.Forms.Label();
-            this.lblOP = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.tabCadastro = new System.Windows.Forms.TabPage();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.mskNascm = new System.Windows.Forms.MaskedTextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.mskCell = new System.Windows.Forms.MaskedTextBox();
-            this.radMasc = new System.Windows.Forms.RadioButton();
-            this.radFem = new System.Windows.Forms.RadioButton();
-            this.mskCPF = new System.Windows.Forms.MaskedTextBox();
-            this.txtSobren = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnLimparCad = new System.Windows.Forms.Button();
+            this.btnCadastrarCad = new System.Windows.Forms.Button();
+            this.mskNascmCad = new System.Windows.Forms.MaskedTextBox();
+            this.txtSenhaCad = new System.Windows.Forms.TextBox();
+            this.mskCellCad = new System.Windows.Forms.MaskedTextBox();
+            this.radMascCad = new System.Windows.Forms.RadioButton();
+            this.radFemCad = new System.Windows.Forms.RadioButton();
+            this.mskCPFCad = new System.Windows.Forms.MaskedTextBox();
+            this.txtSobrenCad = new System.Windows.Forms.TextBox();
+            this.txtNomeCad = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblCell = new System.Windows.Forms.Label();
             this.lblNascm = new System.Windows.Forms.Label();
@@ -57,18 +54,39 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabConsulta = new System.Windows.Forms.TabPage();
-            this.dgvConsulta = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.picReload = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.tabAltPesq = new System.Windows.Forms.TabPage();
+            this.btnLimpaAlt = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.mskNascmAlt = new System.Windows.Forms.MaskedTextBox();
+            this.txtSenhaAlt = new System.Windows.Forms.TextBox();
+            this.mskCelAlt = new System.Windows.Forms.MaskedTextBox();
+            this.radMascAlt = new System.Windows.Forms.RadioButton();
+            this.radFemAlt = new System.Windows.Forms.RadioButton();
+            this.txtSobrAlt = new System.Windows.Forms.TextBox();
+            this.txtNomeAlt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mskCPFAlt = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabAdmin.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
             this.tabCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabConsulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
+            this.tabAltPesq.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -86,11 +104,8 @@
             // 
             // tabHome
             // 
-            this.tabHome.Controls.Add(this.lblConsulta);
             this.tabHome.Controls.Add(this.picAdmin);
             this.tabHome.Controls.Add(this.lblIntro);
-            this.tabHome.Controls.Add(this.lblCadastro);
-            this.tabHome.Controls.Add(this.lblOP);
             this.tabHome.Controls.Add(this.btnReturn);
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
@@ -100,21 +115,10 @@
             this.tabHome.Text = " Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
-            // lblConsulta
-            // 
-            this.lblConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConsulta.Location = new System.Drawing.Point(328, 191);
-            this.lblConsulta.Name = "lblConsulta";
-            this.lblConsulta.Size = new System.Drawing.Size(100, 41);
-            this.lblConsulta.TabIndex = 8;
-            this.lblConsulta.Text = "Consulta de Médicos";
-            this.lblConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblConsulta.Click += new System.EventHandler(this.lblConsulta_Click);
-            // 
             // picAdmin
             // 
             this.picAdmin.Image = ((System.Drawing.Image)(resources.GetObject("picAdmin.Image")));
-            this.picAdmin.Location = new System.Drawing.Point(8, 56);
+            this.picAdmin.Location = new System.Drawing.Point(71, 61);
             this.picAdmin.Name = "picAdmin";
             this.picAdmin.Size = new System.Drawing.Size(301, 241);
             this.picAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,35 +127,13 @@
             // 
             // lblIntro
             // 
-            this.lblIntro.AutoSize = true;
             this.lblIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIntro.Location = new System.Drawing.Point(3, 3);
             this.lblIntro.Name = "lblIntro";
-            this.lblIntro.Size = new System.Drawing.Size(435, 50);
+            this.lblIntro.Size = new System.Drawing.Size(441, 50);
             this.lblIntro.TabIndex = 6;
-            this.lblIntro.Text = "Bem-vindo(a) à pagina de Administrador\r\n!";
+            this.lblIntro.Text = "Bem-vindo(a) à pagina Administrativa!";
             this.lblIntro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCadastro
-            // 
-            this.lblCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadastro.Location = new System.Drawing.Point(328, 133);
-            this.lblCadastro.Name = "lblCadastro";
-            this.lblCadastro.Size = new System.Drawing.Size(100, 41);
-            this.lblCadastro.TabIndex = 5;
-            this.lblCadastro.Text = "Cadastro de Médicos";
-            this.lblCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCadastro.Click += new System.EventHandler(this.lblCadastro_Click);
-            // 
-            // lblOP
-            // 
-            this.lblOP.AutoSize = true;
-            this.lblOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOP.Location = new System.Drawing.Point(339, 80);
-            this.lblOP.Name = "lblOP";
-            this.lblOP.Size = new System.Drawing.Size(89, 24);
-            this.lblOP.TabIndex = 4;
-            this.lblOP.Text = "Opções:";
             // 
             // btnReturn
             // 
@@ -166,16 +148,16 @@
             // 
             // tabCadastro
             // 
-            this.tabCadastro.Controls.Add(this.btnLimpar);
-            this.tabCadastro.Controls.Add(this.btnCadastrar);
-            this.tabCadastro.Controls.Add(this.mskNascm);
-            this.tabCadastro.Controls.Add(this.txtSenha);
-            this.tabCadastro.Controls.Add(this.mskCell);
-            this.tabCadastro.Controls.Add(this.radMasc);
-            this.tabCadastro.Controls.Add(this.radFem);
-            this.tabCadastro.Controls.Add(this.mskCPF);
-            this.tabCadastro.Controls.Add(this.txtSobren);
-            this.tabCadastro.Controls.Add(this.txtNome);
+            this.tabCadastro.Controls.Add(this.btnLimparCad);
+            this.tabCadastro.Controls.Add(this.btnCadastrarCad);
+            this.tabCadastro.Controls.Add(this.mskNascmCad);
+            this.tabCadastro.Controls.Add(this.txtSenhaCad);
+            this.tabCadastro.Controls.Add(this.mskCellCad);
+            this.tabCadastro.Controls.Add(this.radMascCad);
+            this.tabCadastro.Controls.Add(this.radFemCad);
+            this.tabCadastro.Controls.Add(this.mskCPFCad);
+            this.tabCadastro.Controls.Add(this.txtSobrenCad);
+            this.tabCadastro.Controls.Add(this.txtNomeCad);
             this.tabCadastro.Controls.Add(this.lblSenha);
             this.tabCadastro.Controls.Add(this.lblCell);
             this.tabCadastro.Controls.Add(this.lblNascm);
@@ -192,103 +174,103 @@
             this.tabCadastro.Text = "Cadastro";
             this.tabCadastro.UseVisualStyleBackColor = true;
             // 
-            // btnLimpar
+            // btnLimparCad
             // 
-            this.btnLimpar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(234, 360);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(91, 33);
-            this.btnLimpar.TabIndex = 10;
-            this.btnLimpar.Text = "&Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.btnLimparCad.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparCad.Location = new System.Drawing.Point(234, 360);
+            this.btnLimparCad.Name = "btnLimparCad";
+            this.btnLimparCad.Size = new System.Drawing.Size(91, 33);
+            this.btnLimparCad.TabIndex = 10;
+            this.btnLimparCad.Text = "&Limpar";
+            this.btnLimparCad.UseVisualStyleBackColor = true;
+            this.btnLimparCad.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // btnCadastrar
+            // btnCadastrarCad
             // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(123, 361);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(91, 32);
-            this.btnCadastrar.TabIndex = 9;
-            this.btnCadastrar.Text = "&Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnCadastrarCad.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCad.Location = new System.Drawing.Point(123, 361);
+            this.btnCadastrarCad.Name = "btnCadastrarCad";
+            this.btnCadastrarCad.Size = new System.Drawing.Size(91, 32);
+            this.btnCadastrarCad.TabIndex = 9;
+            this.btnCadastrarCad.Text = "&Cadastrar";
+            this.btnCadastrarCad.UseVisualStyleBackColor = true;
+            this.btnCadastrarCad.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // mskNascm
+            // mskNascmCad
             // 
-            this.mskNascm.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNascm.Location = new System.Drawing.Point(274, 217);
-            this.mskNascm.Mask = "00/00/0000";
-            this.mskNascm.Name = "mskNascm";
-            this.mskNascm.Size = new System.Drawing.Size(100, 31);
-            this.mskNascm.TabIndex = 6;
-            this.mskNascm.ValidatingType = typeof(System.DateTime);
+            this.mskNascmCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskNascmCad.Location = new System.Drawing.Point(274, 217);
+            this.mskNascmCad.Mask = "00/00/0000";
+            this.mskNascmCad.Name = "mskNascmCad";
+            this.mskNascmCad.Size = new System.Drawing.Size(100, 31);
+            this.mskNascmCad.TabIndex = 6;
+            this.mskNascmCad.ValidatingType = typeof(System.DateTime);
             // 
-            // txtSenha
+            // txtSenhaCad
             // 
-            this.txtSenha.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(274, 296);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(141, 31);
-            this.txtSenha.TabIndex = 8;
+            this.txtSenhaCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaCad.Location = new System.Drawing.Point(274, 296);
+            this.txtSenhaCad.Name = "txtSenhaCad";
+            this.txtSenhaCad.PasswordChar = '*';
+            this.txtSenhaCad.Size = new System.Drawing.Size(141, 31);
+            this.txtSenhaCad.TabIndex = 8;
             // 
-            // mskCell
+            // mskCellCad
             // 
-            this.mskCell.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskCell.Location = new System.Drawing.Point(274, 255);
-            this.mskCell.Mask = "(99) 00000-0000";
-            this.mskCell.Name = "mskCell";
-            this.mskCell.Size = new System.Drawing.Size(141, 31);
-            this.mskCell.TabIndex = 7;
+            this.mskCellCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCellCad.Location = new System.Drawing.Point(274, 255);
+            this.mskCellCad.Mask = "(99) 00000-0000";
+            this.mskCellCad.Name = "mskCellCad";
+            this.mskCellCad.Size = new System.Drawing.Size(141, 31);
+            this.mskCellCad.TabIndex = 7;
             // 
-            // radMasc
+            // radMascCad
             // 
-            this.radMasc.AutoSize = true;
-            this.radMasc.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radMasc.Location = new System.Drawing.Point(281, 184);
-            this.radMasc.Name = "radMasc";
-            this.radMasc.Size = new System.Drawing.Size(89, 22);
-            this.radMasc.TabIndex = 5;
-            this.radMasc.Text = "&Masculino";
-            this.radMasc.UseVisualStyleBackColor = true;
+            this.radMascCad.AutoSize = true;
+            this.radMascCad.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMascCad.Location = new System.Drawing.Point(281, 184);
+            this.radMascCad.Name = "radMascCad";
+            this.radMascCad.Size = new System.Drawing.Size(89, 22);
+            this.radMascCad.TabIndex = 5;
+            this.radMascCad.Text = "&Masculino";
+            this.radMascCad.UseVisualStyleBackColor = true;
             // 
-            // radFem
+            // radFemCad
             // 
-            this.radFem.AutoSize = true;
-            this.radFem.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radFem.Location = new System.Drawing.Point(281, 156);
-            this.radFem.Name = "radFem";
-            this.radFem.Size = new System.Drawing.Size(85, 22);
-            this.radFem.TabIndex = 4;
-            this.radFem.Text = "&Feminino";
-            this.radFem.UseVisualStyleBackColor = true;
+            this.radFemCad.AutoSize = true;
+            this.radFemCad.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFemCad.Location = new System.Drawing.Point(281, 156);
+            this.radFemCad.Name = "radFemCad";
+            this.radFemCad.Size = new System.Drawing.Size(85, 22);
+            this.radFemCad.TabIndex = 4;
+            this.radFemCad.Text = "&Feminino";
+            this.radFemCad.UseVisualStyleBackColor = true;
             // 
-            // mskCPF
+            // mskCPFCad
             // 
-            this.mskCPF.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskCPF.Location = new System.Drawing.Point(274, 117);
-            this.mskCPF.Mask = "000,000,000-00";
-            this.mskCPF.Name = "mskCPF";
-            this.mskCPF.Size = new System.Drawing.Size(141, 31);
-            this.mskCPF.TabIndex = 3;
-            this.mskCPF.ValidatingType = typeof(int);
+            this.mskCPFCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCPFCad.Location = new System.Drawing.Point(274, 117);
+            this.mskCPFCad.Mask = "000,000,000-00";
+            this.mskCPFCad.Name = "mskCPFCad";
+            this.mskCPFCad.Size = new System.Drawing.Size(141, 31);
+            this.mskCPFCad.TabIndex = 3;
+            this.mskCPFCad.ValidatingType = typeof(int);
             // 
-            // txtSobren
+            // txtSobrenCad
             // 
-            this.txtSobren.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSobren.Location = new System.Drawing.Point(274, 72);
-            this.txtSobren.Name = "txtSobren";
-            this.txtSobren.Size = new System.Drawing.Size(141, 31);
-            this.txtSobren.TabIndex = 2;
+            this.txtSobrenCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSobrenCad.Location = new System.Drawing.Point(274, 72);
+            this.txtSobrenCad.Name = "txtSobrenCad";
+            this.txtSobrenCad.Size = new System.Drawing.Size(141, 31);
+            this.txtSobrenCad.TabIndex = 2;
             // 
-            // txtNome
+            // txtNomeCad
             // 
-            this.txtNome.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(274, 25);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(141, 31);
-            this.txtNome.TabIndex = 1;
+            this.txtNomeCad.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCad.Location = new System.Drawing.Point(274, 25);
+            this.txtNomeCad.Name = "txtNomeCad";
+            this.txtNomeCad.Size = new System.Drawing.Size(141, 31);
+            this.txtNomeCad.TabIndex = 1;
             // 
             // lblSenha
             // 
@@ -382,6 +364,27 @@
             this.tabConsulta.Text = "Consulta Geral";
             this.tabConsulta.UseVisualStyleBackColor = true;
             // 
+            // picReload
+            // 
+            this.picReload.Image = ((System.Drawing.Image)(resources.GetObject("picReload.Image")));
+            this.picReload.Location = new System.Drawing.Point(392, 394);
+            this.picReload.Name = "picReload";
+            this.picReload.Size = new System.Drawing.Size(55, 27);
+            this.picReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picReload.TabIndex = 7;
+            this.picReload.TabStop = false;
+            this.picReload.Click += new System.EventHandler(this.picReload_Click);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 394);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(394, 29);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Para mais informações, duplo clique no ID desejado";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dgvConsulta
             // 
             this.dgvConsulta.AllowUserToAddRows = false;
@@ -395,35 +398,221 @@
             this.dgvConsulta.TabIndex = 0;
             this.dgvConsulta.DoubleClick += new System.EventHandler(this.dgvConsulta_DoubleClick);
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 394);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(394, 29);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Para mais informações, duplo clique na linha desejada";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picReload
-            // 
-            this.picReload.Image = ((System.Drawing.Image)(resources.GetObject("picReload.Image")));
-            this.picReload.Location = new System.Drawing.Point(392, 394);
-            this.picReload.Name = "picReload";
-            this.picReload.Size = new System.Drawing.Size(55, 27);
-            this.picReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picReload.TabIndex = 7;
-            this.picReload.TabStop = false;
-            this.picReload.Click += new System.EventHandler(this.picReload_Click);
-            // 
             // tabAltPesq
             // 
+            this.tabAltPesq.Controls.Add(this.mskCPFAlt);
+            this.tabAltPesq.Controls.Add(this.label6);
+            this.tabAltPesq.Controls.Add(this.label9);
+            this.tabAltPesq.Controls.Add(this.btnLimpaAlt);
+            this.tabAltPesq.Controls.Add(this.btnAlterar);
+            this.tabAltPesq.Controls.Add(this.mskNascmAlt);
+            this.tabAltPesq.Controls.Add(this.txtSenhaAlt);
+            this.tabAltPesq.Controls.Add(this.mskCelAlt);
+            this.tabAltPesq.Controls.Add(this.radMascAlt);
+            this.tabAltPesq.Controls.Add(this.radFemAlt);
+            this.tabAltPesq.Controls.Add(this.txtSobrAlt);
+            this.tabAltPesq.Controls.Add(this.txtNomeAlt);
+            this.tabAltPesq.Controls.Add(this.label2);
+            this.tabAltPesq.Controls.Add(this.label3);
+            this.tabAltPesq.Controls.Add(this.label4);
+            this.tabAltPesq.Controls.Add(this.label5);
+            this.tabAltPesq.Controls.Add(this.label7);
+            this.tabAltPesq.Controls.Add(this.label8);
+            this.tabAltPesq.Controls.Add(this.pictureBox1);
             this.tabAltPesq.Location = new System.Drawing.Point(4, 22);
             this.tabAltPesq.Name = "tabAltPesq";
             this.tabAltPesq.Size = new System.Drawing.Size(450, 424);
             this.tabAltPesq.TabIndex = 3;
             this.tabAltPesq.Text = "Alteração/Pesquisa";
             this.tabAltPesq.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpaAlt
+            // 
+            this.btnLimpaAlt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpaAlt.Location = new System.Drawing.Point(249, 367);
+            this.btnLimpaAlt.Name = "btnLimpaAlt";
+            this.btnLimpaAlt.Size = new System.Drawing.Size(91, 33);
+            this.btnLimpaAlt.TabIndex = 55;
+            this.btnLimpaAlt.Text = "&Limpar";
+            this.btnLimpaAlt.UseVisualStyleBackColor = true;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Location = new System.Drawing.Point(138, 368);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(91, 32);
+            this.btnAlterar.TabIndex = 54;
+            this.btnAlterar.Text = "&Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // mskNascmAlt
+            // 
+            this.mskNascmAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskNascmAlt.Location = new System.Drawing.Point(289, 231);
+            this.mskNascmAlt.Mask = "00/00/0000";
+            this.mskNascmAlt.Name = "mskNascmAlt";
+            this.mskNascmAlt.Size = new System.Drawing.Size(100, 31);
+            this.mskNascmAlt.TabIndex = 51;
+            this.mskNascmAlt.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtSenhaAlt
+            // 
+            this.txtSenhaAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaAlt.Location = new System.Drawing.Point(289, 310);
+            this.txtSenhaAlt.Name = "txtSenhaAlt";
+            this.txtSenhaAlt.PasswordChar = '*';
+            this.txtSenhaAlt.Size = new System.Drawing.Size(141, 31);
+            this.txtSenhaAlt.TabIndex = 53;
+            // 
+            // mskCelAlt
+            // 
+            this.mskCelAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCelAlt.Location = new System.Drawing.Point(289, 269);
+            this.mskCelAlt.Mask = "(99) 00000-0000";
+            this.mskCelAlt.Name = "mskCelAlt";
+            this.mskCelAlt.Size = new System.Drawing.Size(141, 31);
+            this.mskCelAlt.TabIndex = 52;
+            // 
+            // radMascAlt
+            // 
+            this.radMascAlt.AutoSize = true;
+            this.radMascAlt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMascAlt.Location = new System.Drawing.Point(296, 198);
+            this.radMascAlt.Name = "radMascAlt";
+            this.radMascAlt.Size = new System.Drawing.Size(89, 22);
+            this.radMascAlt.TabIndex = 50;
+            this.radMascAlt.Text = "&Masculino";
+            this.radMascAlt.UseVisualStyleBackColor = true;
+            // 
+            // radFemAlt
+            // 
+            this.radFemAlt.AutoSize = true;
+            this.radFemAlt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFemAlt.Location = new System.Drawing.Point(296, 170);
+            this.radFemAlt.Name = "radFemAlt";
+            this.radFemAlt.Size = new System.Drawing.Size(85, 22);
+            this.radFemAlt.TabIndex = 49;
+            this.radFemAlt.Text = "&Feminino";
+            this.radFemAlt.UseVisualStyleBackColor = true;
+            // 
+            // txtSobrAlt
+            // 
+            this.txtSobrAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSobrAlt.Location = new System.Drawing.Point(289, 128);
+            this.txtSobrAlt.Name = "txtSobrAlt";
+            this.txtSobrAlt.Size = new System.Drawing.Size(141, 31);
+            this.txtSobrAlt.TabIndex = 47;
+            // 
+            // txtNomeAlt
+            // 
+            this.txtNomeAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeAlt.Location = new System.Drawing.Point(289, 81);
+            this.txtNomeAlt.Name = "txtNomeAlt";
+            this.txtNomeAlt.Size = new System.Drawing.Size(141, 31);
+            this.txtNomeAlt.TabIndex = 46;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(214, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 23);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Senha:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(206, 272);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 23);
+            this.label3.TabIndex = 61;
+            this.label3.Text = "Celular:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(105, 234);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 23);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Data de nascimento:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(224, 186);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 23);
+            this.label5.TabIndex = 59;
+            this.label5.Text = "Sexo:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(171, 131);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 23);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Sobrenome:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(214, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 23);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Nome:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(148, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 63;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 165);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(151, 44);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Digite um CPF e aperte TAB para conferir os dados";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // mskCPFAlt
+            // 
+            this.mskCPFAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCPFAlt.Location = new System.Drawing.Point(289, 29);
+            this.mskCPFAlt.Mask = "000,000,000-00";
+            this.mskCPFAlt.Name = "mskCPFAlt";
+            this.mskCPFAlt.Size = new System.Drawing.Size(141, 31);
+            this.mskCPFAlt.TabIndex = 67;
+            this.mskCPFAlt.ValidatingType = typeof(int);
+            this.mskCPFAlt.Validating += new System.ComponentModel.CancelEventHandler(this.mskCPFAlt_Validating);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(233, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 23);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "CPF:";
             // 
             // frmMASTER
             // 
@@ -438,14 +627,16 @@
             this.Text = "Admin";
             this.tabAdmin.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
-            this.tabHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).EndInit();
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabConsulta.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
+            this.tabAltPesq.ResumeLayout(false);
+            this.tabAltPesq.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,16 +646,16 @@
         private System.Windows.Forms.TabControl tabAdmin;
         private System.Windows.Forms.TabPage tabHome;
         private System.Windows.Forms.TabPage tabCadastro;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.MaskedTextBox mskNascm;
-        private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.MaskedTextBox mskCell;
-        private System.Windows.Forms.RadioButton radMasc;
-        private System.Windows.Forms.RadioButton radFem;
-        private System.Windows.Forms.MaskedTextBox mskCPF;
-        private System.Windows.Forms.TextBox txtSobren;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnLimparCad;
+        private System.Windows.Forms.Button btnCadastrarCad;
+        private System.Windows.Forms.MaskedTextBox mskNascmCad;
+        private System.Windows.Forms.TextBox txtSenhaCad;
+        private System.Windows.Forms.MaskedTextBox mskCellCad;
+        private System.Windows.Forms.RadioButton radMascCad;
+        private System.Windows.Forms.RadioButton radFemCad;
+        private System.Windows.Forms.MaskedTextBox mskCPFCad;
+        private System.Windows.Forms.TextBox txtSobrenCad;
+        private System.Windows.Forms.TextBox txtNomeCad;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblCell;
         private System.Windows.Forms.Label lblNascm;
@@ -475,14 +666,30 @@
         private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridView dgvConsulta;
-        private System.Windows.Forms.Label lblConsulta;
         private System.Windows.Forms.PictureBox picAdmin;
         private System.Windows.Forms.Label lblIntro;
-        private System.Windows.Forms.Label lblCadastro;
-        private System.Windows.Forms.Label lblOP;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picReload;
         private System.Windows.Forms.TabPage tabAltPesq;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnLimpaAlt;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.MaskedTextBox mskNascmAlt;
+        private System.Windows.Forms.TextBox txtSenhaAlt;
+        private System.Windows.Forms.MaskedTextBox mskCelAlt;
+        private System.Windows.Forms.RadioButton radMascAlt;
+        private System.Windows.Forms.RadioButton radFemAlt;
+        private System.Windows.Forms.TextBox txtSobrAlt;
+        private System.Windows.Forms.TextBox txtNomeAlt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MaskedTextBox mskCPFAlt;
+        private System.Windows.Forms.Label label6;
     }
 }

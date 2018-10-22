@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+//User input
 using Npgsql;
 using static Belpre.Program;
+
 
 namespace Belpre
 {
     public partial class frmMASTER : Form
     {
+        Criptografia cripto = new Criptografia();
+
         public frmMASTER()
         {
             InitializeComponent();
@@ -38,64 +42,60 @@ namespace Belpre
             string sql;
 
             //Campo NOME
-            if (!String.IsNullOrWhiteSpace(txtNome.Text))
-                param.Add(txtNome.Text);
+            if (!String.IsNullOrWhiteSpace(txtNomeCad.Text))
+                param.Add(txtNomeCad.Text);
             else
             {
                 ErroPreenchimento();
                 return;
             }
-
             //Campo SOBRENOME
-            if (!String.IsNullOrWhiteSpace(txtSobren.Text))
-                param.Add(txtSobren.Text);
+            if (!String.IsNullOrWhiteSpace(txtSobrenCad.Text))
+                param.Add(txtSobrenCad.Text);
             else
             {
                 ErroPreenchimento();
                 return;
             }
-
             //Campo CPF
-            if (!String.IsNullOrWhiteSpace(mskCPF.Text))
+            if (!String.IsNullOrWhiteSpace(mskCPFCad.Text))
             {
                 frmLogin login = new frmLogin();
 
-                mskCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                mskCPFCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-                if (mskCPF.Text == login.getCPF_Mestre())
+                if (mskCPFCad.Text == login.getCPF_Mestre())
                 {
                     MessageBox.Show("Esse CPF não pode ser utilizado!\nDigite outro no lugar.", "Belpre",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                param.Add(Convert.ToInt64(mskCPF.Text));
-                mskCPF.TextMaskFormat = MaskFormat.IncludeLiterals;
+                param.Add(Convert.ToInt64(mskCPFCad.Text));
+                mskCPFCad.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
             else
             {
                 ErroPreenchimento();
                 return;
             }
-
             //Campo SEXO
-            if (radFem.Checked)
+            if (radFemCad.Checked)
                 param.Add("F");
-            else if (radMasc.Checked)
+            else if (radMascCad.Checked)
                 param.Add("M");
             else
             {
                 ErroPreenchimento();
                 return;
             }
-
             //Campo NASCIMENTO
-            if (!String.IsNullOrWhiteSpace(mskNascm.Text))
+            if (!String.IsNullOrWhiteSpace(mskNascmCad.Text))
             {
                 try
                 {
                     CultureInfo culture = new CultureInfo("pt-BR");
-                    DateTime data_com_hora = Convert.ToDateTime(mskNascm.Text, culture);
+                    DateTime data_com_hora = Convert.ToDateTime(mskNascmCad.Text, culture);
 
                     param.Add(data_com_hora.Date);
                 }
@@ -111,25 +111,23 @@ namespace Belpre
                 ErroPreenchimento();
                 return;
             }
-
             //Campo CELULAR
-            if (!String.IsNullOrWhiteSpace(mskCell.Text))
+            if (!String.IsNullOrWhiteSpace(mskCellCad.Text))
             {
-                mskCell.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                mskCellCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-                param.Add(Convert.ToInt64(mskCell.Text));
+                param.Add(Convert.ToInt64(mskCellCad.Text));
 
-                mskCell.TextMaskFormat = MaskFormat.IncludeLiterals;
+                mskCellCad.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
             else
             {
                 ErroPreenchimento();
                 return;
             }
-
             //Campo SENHA
-            if (!String.IsNullOrWhiteSpace(txtSenha.Text))
-                param.Add(txtSenha.Text);
+            if (!String.IsNullOrWhiteSpace(txtSenhaCad.Text))
+                param.Add(cripto.RetornarMD5(txtSenhaCad.Text));
             else
             {
                 ErroPreenchimento();
@@ -142,8 +140,10 @@ namespace Belpre
 
             conexao.Run(sql, param);
 
-            MessageBox.Show("Cadastro efetuado com sucesso!\n" + txtNome.Text + " bem-vindo a Belpre!",
+            MessageBox.Show("Cadastro efetuado com sucesso!\n" + txtNomeCad.Text + " bem-vindo a Belpre!",
                 "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LimpaCampos();
         }
         private void ErroPreenchimento()
         {
@@ -158,16 +158,16 @@ namespace Belpre
         }
         private void LimpaCampos()
         {
-            txtNome.Text = "";
-            txtSobren.Text = "";
-            txtSenha.Text = "";
+            txtNomeCad.Text = "";
+            txtSobrenCad.Text = "";
+            txtSenhaCad.Text = "";
 
-            mskCell.Text = "";
-            mskCPF.Text = "";
-            mskNascm.Text = "";
+            mskCellCad.Text = "";
+            mskCPFCad.Text = "";
+            mskNascmCad.Text = "";
 
-            radFem.Checked = false;
-            radMasc.Checked = false;
+            radFemCad.Checked = false;
+            radMascCad.Checked = false;
         }
 
         //Voltar ao form de LOGIN
@@ -179,7 +179,7 @@ namespace Belpre
             this.Close();
         }
 
-        //Trocou o index - carregou o DGV
+        //Entrou na aba de consulta
         private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Se a selecionada é a consulta
@@ -205,7 +205,7 @@ namespace Belpre
             tabAdmin_SelectedIndexChanged(sender, new CancelEventArgs());
         }
 
-        //Selecionou a linha de um cadastro
+        //Selecionou a linha de um cadastro -> Vai pra alteração
         private void dgvConsulta_DoubleClick(object sender, EventArgs e)
         {
             Int64 id = Convert.ToInt64(dgvConsulta.Rows[dgvConsulta.CurrentRow.Index].Cells[0].Value);
@@ -215,6 +215,182 @@ namespace Belpre
 
             /*ALTERAÇÃO AQUI*/
            // txtId_Validating(txtId, new CancelEventArgs());
+        }
+
+        //Carrega um cpf
+        private void mskCPFAlt_Validating(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                mskCPFAlt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                if (!String.IsNullOrWhiteSpace(mskCPFAlt.Text))
+                {
+                    List<object> param = new List<object>();
+                    param.Add(Convert.ToInt64(mskCPFAlt.Text));
+
+                    string sql = "SELECT * FROM medicos " +
+                            "WHERE cpf = @1";
+
+                    NpgsqlDataReader dr = conexao.Select(sql, param);
+
+                    if (dr.Read())
+                    {
+                        txtNomeAlt.Text = dr["nome"].ToString();
+                        txtSobrAlt.Text = dr["sobrenome"].ToString();
+                        txtSenhaAlt.Text = dr["senha"].ToString();
+                        mskCPFAlt.Text = dr["cpf"].ToString();
+                        mskNascmAlt.Text = dr["data_nascm"].ToString();
+                        mskCelAlt.Text = dr["celular"].ToString();
+                        if (dr["sexo"].ToString() == "M")
+                            radMascAlt.Checked = true;
+                        else
+                            radFemAlt.Checked = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi localizado nenhum médico com este CPF!",
+                            "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        LimpaCamposAlt();
+                    }
+
+                    dr.Close();
+                }
+
+                mskCPFAlt.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LimpaCamposAlt()
+        {
+            txtNomeAlt.Text = "";
+            txtSobrAlt.Text = "";
+            txtSenhaAlt.Text = "";
+
+            mskCelAlt.Text = "";
+            mskCPFAlt.Text = "";
+            mskNascmAlt.Text = "";
+
+            radFemAlt.Checked = false;
+            radFemAlt.Checked = false;
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            List<object> param = new List<object>();
+
+            string sql;
+
+            //Campo NOME
+            if (!String.IsNullOrWhiteSpace(txtNomeAlt.Text))
+                param.Add(txtNomeAlt.Text);
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo SOBRENOME
+            if (!String.IsNullOrWhiteSpace(txtSobrAlt.Text))
+                param.Add(txtSobrAlt.Text);
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo CPF
+            if (!String.IsNullOrWhiteSpace(mskCPFAlt.Text))
+            {
+                frmLogin login = new frmLogin();
+
+                mskCPFAlt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                if (mskCPFAlt.Text == login.getCPF_Mestre())
+                {
+                    MessageBox.Show("Esse CPF não pode ser utilizado!\nDigite outro no lugar.", "Belpre",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                param.Add(Convert.ToInt64(mskCPFAlt.Text));
+                mskCPFAlt.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo SEXO
+            if (radFemAlt.Checked)
+                param.Add("F");
+            else if (radMascAlt.Checked)
+                param.Add("M");
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo NASCIMENTO
+            if (!String.IsNullOrWhiteSpace(mskNascmAlt.Text))
+            {
+                try
+                {
+                    CultureInfo culture = new CultureInfo("pt-BR");
+                    DateTime data_com_hora = Convert.ToDateTime(mskNascmAlt.Text, culture);
+
+                    param.Add(data_com_hora.Date);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo CELULAR
+            if (!String.IsNullOrWhiteSpace(mskCelAlt.Text))
+            {
+                mskCelAlt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                param.Add(Convert.ToInt64(mskCelAlt.Text));
+
+                mskCelAlt.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            //Campo SENHA
+            if (!String.IsNullOrWhiteSpace(txtSenhaAlt.Text))
+                param.Add(txtSenhaAlt.Text);
+            else
+            {
+                ErroPreenchimento();
+                return;
+            }
+            /*
+            //Envia ao banco de dados
+            sql = "INSERT INTO medicos VALUES" +
+                "(DEFAULT, @1, @2, @3, @4, @5, @6, @7);";
+           
+            ~converter a senha = md5
+
+            conexao.Run(sql, param);
+
+            MessageBox.Show("Cadastro efetuado com sucesso!\n" + txtNomeCad.Text + " bem-vindo a Belpre!",
+                "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LimpaCampos();*/
         }
     }
 }
