@@ -12,14 +12,17 @@ namespace Belpre
 {
     public partial class frmMedico : Form
     {
-        private string logado;
+        private string logado, sexo;
 
-        public frmMedico(string recebido)
+        public frmMedico(string recebido, string recsexo)
         {
             InitializeComponent();
 
             logado = recebido;
-            label1.Text = logado;
+            lblBemVindo.Text = "Bem-Vindo " + logado + "!";
+
+            sexo = recsexo;
+            picMedicoa.Image = Image.FromFile(@"Images\" + sexo + ".png");
         }
     }
 }

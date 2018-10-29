@@ -12,7 +12,7 @@ namespace Belpre
 {
     public partial class frmPacientes : Form
     {
-        public frmPacientes(string recebido)
+        public frmPacientes(string recebido, string sexo)
         {
             InitializeComponent();
         }
