@@ -12,9 +12,14 @@ namespace Belpre
 {
     public partial class frmMedico : Form
     {
-        public frmMedico()
+        private string logado;
+
+        public frmMedico(string recebido)
         {
             InitializeComponent();
+
+            logado = recebido;
+            label1.Text = logado;
         }
     }
 }

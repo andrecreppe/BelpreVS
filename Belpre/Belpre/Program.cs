@@ -24,7 +24,7 @@ namespace Belpre
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMASTER());
+            Application.Run(new frmLogin());
         }
     }
 }

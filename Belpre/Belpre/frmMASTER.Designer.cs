@@ -58,6 +58,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.tabAltPesq = new System.Windows.Forms.TabPage();
+            this.mskCPFAlt = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnLimpaAlt = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.mskNascmAlt = new System.Windows.Forms.MaskedTextBox();
@@ -74,9 +77,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mskCPFAlt = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabAdmin.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
@@ -426,6 +426,37 @@
             this.tabAltPesq.Text = "Alteração/Pesquisa";
             this.tabAltPesq.UseVisualStyleBackColor = true;
             // 
+            // mskCPFAlt
+            // 
+            this.mskCPFAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCPFAlt.Location = new System.Drawing.Point(289, 29);
+            this.mskCPFAlt.Mask = "000,000,000-00";
+            this.mskCPFAlt.Name = "mskCPFAlt";
+            this.mskCPFAlt.Size = new System.Drawing.Size(141, 31);
+            this.mskCPFAlt.TabIndex = 67;
+            this.mskCPFAlt.ValidatingType = typeof(int);
+            this.mskCPFAlt.Validating += new System.ComponentModel.CancelEventHandler(this.mskCPFAlt_Validating);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(233, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 23);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "CPF:";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 165);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(151, 44);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Digite um CPF e aperte TAB para conferir os dados";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // btnLimpaAlt
             // 
             this.btnLimpaAlt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,6 +466,7 @@
             this.btnLimpaAlt.TabIndex = 55;
             this.btnLimpaAlt.Text = "&Limpar";
             this.btnLimpaAlt.UseVisualStyleBackColor = true;
+            this.btnLimpaAlt.Click += new System.EventHandler(this.btnLimpaAlt_Click);
             // 
             // btnAlterar
             // 
@@ -582,37 +614,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 165);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(151, 44);
-            this.label9.TabIndex = 64;
-            this.label9.Text = "Digite um CPF e aperte TAB para conferir os dados";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // mskCPFAlt
-            // 
-            this.mskCPFAlt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskCPFAlt.Location = new System.Drawing.Point(289, 29);
-            this.mskCPFAlt.Mask = "000,000,000-00";
-            this.mskCPFAlt.Name = "mskCPFAlt";
-            this.mskCPFAlt.Size = new System.Drawing.Size(141, 31);
-            this.mskCPFAlt.TabIndex = 67;
-            this.mskCPFAlt.ValidatingType = typeof(int);
-            this.mskCPFAlt.Validating += new System.ComponentModel.CancelEventHandler(this.mskCPFAlt_Validating);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(233, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 23);
-            this.label6.TabIndex = 68;
-            this.label6.Text = "CPF:";
             // 
             // frmMASTER
             // 
