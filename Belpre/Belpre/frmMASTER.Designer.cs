@@ -52,12 +52,13 @@
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblSobren = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picEsteto = new System.Windows.Forms.PictureBox();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.picReload = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.tabAltPesq = new System.Windows.Forms.TabPage();
+            this.btnEstado = new System.Windows.Forms.Button();
             this.mskCPFAlt = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -76,17 +77,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picAlt = new System.Windows.Forms.PictureBox();
             this.tabAdmin.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
             this.tabCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEsteto)).BeginInit();
             this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.tabAltPesq.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAlt)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -165,13 +166,13 @@
             this.tabCadastro.Controls.Add(this.lblCPF);
             this.tabCadastro.Controls.Add(this.lblSobren);
             this.tabCadastro.Controls.Add(this.lblNome);
-            this.tabCadastro.Controls.Add(this.pictureBox2);
+            this.tabCadastro.Controls.Add(this.picEsteto);
             this.tabCadastro.Location = new System.Drawing.Point(4, 22);
             this.tabCadastro.Name = "tabCadastro";
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
             this.tabCadastro.Size = new System.Drawing.Size(450, 424);
             this.tabCadastro.TabIndex = 1;
-            this.tabCadastro.Text = "Cadastro";
+            this.tabCadastro.Text = "Cadastro médicos";
             this.tabCadastro.UseVisualStyleBackColor = true;
             // 
             // btnLimparCad
@@ -342,15 +343,15 @@
             this.lblNome.TabIndex = 38;
             this.lblNome.Text = "Nome:";
             // 
-            // pictureBox2
+            // picEsteto
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 25);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(148, 138);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 45;
-            this.pictureBox2.TabStop = false;
+            this.picEsteto.Image = ((System.Drawing.Image)(resources.GetObject("picEsteto.Image")));
+            this.picEsteto.Location = new System.Drawing.Point(6, 25);
+            this.picEsteto.Name = "picEsteto";
+            this.picEsteto.Size = new System.Drawing.Size(148, 138);
+            this.picEsteto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEsteto.TabIndex = 45;
+            this.picEsteto.TabStop = false;
             // 
             // tabConsulta
             // 
@@ -400,6 +401,7 @@
             // 
             // tabAltPesq
             // 
+            this.tabAltPesq.Controls.Add(this.btnEstado);
             this.tabAltPesq.Controls.Add(this.mskCPFAlt);
             this.tabAltPesq.Controls.Add(this.label6);
             this.tabAltPesq.Controls.Add(this.label9);
@@ -418,13 +420,24 @@
             this.tabAltPesq.Controls.Add(this.label5);
             this.tabAltPesq.Controls.Add(this.label7);
             this.tabAltPesq.Controls.Add(this.label8);
-            this.tabAltPesq.Controls.Add(this.pictureBox1);
+            this.tabAltPesq.Controls.Add(this.picAlt);
             this.tabAltPesq.Location = new System.Drawing.Point(4, 22);
             this.tabAltPesq.Name = "tabAltPesq";
             this.tabAltPesq.Size = new System.Drawing.Size(450, 424);
             this.tabAltPesq.TabIndex = 3;
-            this.tabAltPesq.Text = "Alteração/Pesquisa";
+            this.tabAltPesq.Text = "Alteração/Pesquisa - Médicos";
             this.tabAltPesq.UseVisualStyleBackColor = true;
+            // 
+            // btnEstado
+            // 
+            this.btnEstado.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstado.ForeColor = System.Drawing.Color.Red;
+            this.btnEstado.Location = new System.Drawing.Point(339, 362);
+            this.btnEstado.Name = "btnEstado";
+            this.btnEstado.Size = new System.Drawing.Size(91, 43);
+            this.btnEstado.TabIndex = 69;
+            this.btnEstado.Text = "&Excluir Médico";
+            this.btnEstado.UseVisualStyleBackColor = true;
             // 
             // mskCPFAlt
             // 
@@ -460,7 +473,7 @@
             // btnLimpaAlt
             // 
             this.btnLimpaAlt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpaAlt.Location = new System.Drawing.Point(249, 367);
+            this.btnLimpaAlt.Location = new System.Drawing.Point(15, 367);
             this.btnLimpaAlt.Name = "btnLimpaAlt";
             this.btnLimpaAlt.Size = new System.Drawing.Size(91, 33);
             this.btnLimpaAlt.TabIndex = 55;
@@ -471,7 +484,7 @@
             // btnAlterar
             // 
             this.btnAlterar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(138, 368);
+            this.btnAlterar.Location = new System.Drawing.Point(129, 368);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(91, 32);
             this.btnAlterar.TabIndex = 54;
@@ -605,15 +618,15 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Nome:";
             // 
-            // pictureBox1
+            // picAlt
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 138);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 63;
-            this.pictureBox1.TabStop = false;
+            this.picAlt.Image = ((System.Drawing.Image)(resources.GetObject("picAlt.Image")));
+            this.picAlt.Location = new System.Drawing.Point(15, 24);
+            this.picAlt.Name = "picAlt";
+            this.picAlt.Size = new System.Drawing.Size(148, 138);
+            this.picAlt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAlt.TabIndex = 63;
+            this.picAlt.TabStop = false;
             // 
             // frmMASTER
             // 
@@ -631,13 +644,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).EndInit();
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEsteto)).EndInit();
             this.tabConsulta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.tabAltPesq.ResumeLayout(false);
             this.tabAltPesq.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAlt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -669,7 +682,7 @@
         private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.PictureBox picAdmin;
         private System.Windows.Forms.Label lblIntro;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picEsteto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picReload;
         private System.Windows.Forms.TabPage tabAltPesq;
@@ -689,8 +702,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picAlt;
         private System.Windows.Forms.MaskedTextBox mskCPFAlt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnEstado;
     }
 }

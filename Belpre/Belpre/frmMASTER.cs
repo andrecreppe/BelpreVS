@@ -138,11 +138,11 @@ namespace Belpre
 
                 //Envia ao banco de dados
                 sql = "INSERT INTO medicos VALUES" +
-                    "(DEFAULT, @1, @2, @3, @4, @5, @6, @7);";
+                    "(DEFAULT, @1, @2, @3, @4, @5, @6, @7, 'FALSE');";
 
                 conexao.Run(sql, param);
 
-                MessageBox.Show("Cadastro efetuado com sucesso!\n" + txtNomeCad.Text + " bem-vindo a Belpre!",
+                MessageBox.Show("Cadastro efetuado com sucesso!\n" + "Bem-vindo a Belpre, " + txtNomeCad.Text + "!",
                     "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LimpaCampos();

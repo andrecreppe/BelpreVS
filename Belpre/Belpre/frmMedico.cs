@@ -14,6 +14,14 @@ namespace Belpre
     {
         private string logado, sexo;
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            this.Hide();
+                frm.ShowDialog();
+            this.Close();
+        }
+
         public frmMedico(string recebido, string recsexo)
         {
             InitializeComponent();

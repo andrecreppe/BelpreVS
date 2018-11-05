@@ -18,6 +18,7 @@ CREATE TABLE medicos
     data_nascm      DATE NOT NULL,
     celular         BIGINT NOT NULL,
     senha           CHARACTER VARYING(100) NOT NULL,
+	excluido		BOOLEAN NOT NULL,
     
     CONSTRAINT id_med_pk PRIMARY KEY (id_med)
 );
@@ -41,6 +42,7 @@ CREATE TABLE pacientes
     data_nascm      DATE NOT NULL,
     celular         BIGINT NOT NULL,
     senha           CHARACTER VARYING(100) NOT NULL,
+	excluido		BOOLEAN NOT NULL,
     
     CONSTRAINT id_pac_pk PRIMARY KEY (id_pac)
 );
@@ -61,6 +63,7 @@ CREATE TABLE consultas
     id_pac      INT NOT NULL,
     data_cons   DATE NOT NULL, 
     convenio    CHARACTER VARYING(20) NOT NULL,
+	excluido	BOOLEAN NOT NULL,
     
     CONSTRAINT id_cons_pk PRIMARY KEY (id_cons),
     CONSTRAINT id_med_fk FOREIGN KEY (id_med) REFERENCES medicos(id_med),

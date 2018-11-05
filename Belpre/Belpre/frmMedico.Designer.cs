@@ -30,20 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMedico));
             this.tabMedico = new System.Windows.Forms.TabControl();
-            this.tabAgenda = new System.Windows.Forms.TabPage();
-            this.tabCadPac = new System.Windows.Forms.TabPage();
-            this.tabPac = new System.Windows.Forms.TabPage();
-            this.tabConsulta = new System.Windows.Forms.TabPage();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.picMedicoa = new System.Windows.Forms.PictureBox();
             this.lblBemVindo = new System.Windows.Forms.Label();
+            this.picMedicoa = new System.Windows.Forms.PictureBox();
+            this.tabAgenda = new System.Windows.Forms.TabPage();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.tabConsulta = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPac = new System.Windows.Forms.TabPage();
+            this.tabCadPac = new System.Windows.Forms.TabPage();
+            this.picReload = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvConsulta = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabMedico.SuspendLayout();
-            this.tabAgenda.SuspendLayout();
-            this.tabConsulta.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).BeginInit();
+            this.tabAgenda.SuspendLayout();
+            this.tabConsulta.SuspendLayout();
+            this.tabPac.SuspendLayout();
+            this.tabCadPac.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picReload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMedico
@@ -59,48 +69,9 @@
             this.tabMedico.Size = new System.Drawing.Size(620, 507);
             this.tabMedico.TabIndex = 0;
             // 
-            // tabAgenda
-            // 
-            this.tabAgenda.Controls.Add(this.monthCalendar1);
-            this.tabAgenda.Location = new System.Drawing.Point(4, 22);
-            this.tabAgenda.Name = "tabAgenda";
-            this.tabAgenda.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAgenda.Size = new System.Drawing.Size(612, 481);
-            this.tabAgenda.TabIndex = 0;
-            this.tabAgenda.Text = "Agenda";
-            this.tabAgenda.UseVisualStyleBackColor = true;
-            // 
-            // tabCadPac
-            // 
-            this.tabCadPac.Location = new System.Drawing.Point(4, 22);
-            this.tabCadPac.Name = "tabCadPac";
-            this.tabCadPac.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadPac.Size = new System.Drawing.Size(706, 481);
-            this.tabCadPac.TabIndex = 1;
-            this.tabCadPac.Text = "Cadastro Paciente";
-            this.tabCadPac.UseVisualStyleBackColor = true;
-            // 
-            // tabPac
-            // 
-            this.tabPac.Location = new System.Drawing.Point(4, 22);
-            this.tabPac.Name = "tabPac";
-            this.tabPac.Size = new System.Drawing.Size(706, 481);
-            this.tabPac.TabIndex = 2;
-            this.tabPac.Text = "Pacientes";
-            this.tabPac.UseVisualStyleBackColor = true;
-            // 
-            // tabConsulta
-            // 
-            this.tabConsulta.Controls.Add(this.label1);
-            this.tabConsulta.Location = new System.Drawing.Point(4, 22);
-            this.tabConsulta.Name = "tabConsulta";
-            this.tabConsulta.Size = new System.Drawing.Size(612, 481);
-            this.tabConsulta.TabIndex = 3;
-            this.tabConsulta.Text = "Consultas";
-            this.tabConsulta.UseVisualStyleBackColor = true;
-            // 
             // tabHome
             // 
+            this.tabHome.Controls.Add(this.btnLogout);
             this.tabHome.Controls.Add(this.lblBemVindo);
             this.tabHome.Controls.Add(this.picMedicoa);
             this.tabHome.Location = new System.Drawing.Point(4, 22);
@@ -109,16 +80,6 @@
             this.tabHome.TabIndex = 4;
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
-            // 
-            // picMedicoa
-            // 
-            this.picMedicoa.Image = ((System.Drawing.Image)(resources.GetObject("picMedicoa.Image")));
-            this.picMedicoa.Location = new System.Drawing.Point(131, 65);
-            this.picMedicoa.Name = "picMedicoa";
-            this.picMedicoa.Size = new System.Drawing.Size(352, 404);
-            this.picMedicoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picMedicoa.TabIndex = 0;
-            this.picMedicoa.TabStop = false;
             // 
             // lblBemVindo
             // 
@@ -130,12 +91,43 @@
             this.lblBemVindo.TabIndex = 1;
             this.lblBemVindo.Text = "Bem vindo";
             // 
+            // picMedicoa
+            // 
+            this.picMedicoa.Image = ((System.Drawing.Image)(resources.GetObject("picMedicoa.Image")));
+            this.picMedicoa.Location = new System.Drawing.Point(20, 74);
+            this.picMedicoa.Name = "picMedicoa";
+            this.picMedicoa.Size = new System.Drawing.Size(352, 404);
+            this.picMedicoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picMedicoa.TabIndex = 0;
+            this.picMedicoa.TabStop = false;
+            // 
+            // tabAgenda
+            // 
+            this.tabAgenda.Controls.Add(this.monthCalendar1);
+            this.tabAgenda.Location = new System.Drawing.Point(4, 22);
+            this.tabAgenda.Name = "tabAgenda";
+            this.tabAgenda.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAgenda.Size = new System.Drawing.Size(612, 481);
+            this.tabAgenda.TabIndex = 0;
+            this.tabAgenda.Text = "Agenda";
+            this.tabAgenda.UseVisualStyleBackColor = true;
+            // 
             // monthCalendar1
             // 
             this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 3);
             this.monthCalendar1.Location = new System.Drawing.Point(7, 7);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            // 
+            // tabConsulta
+            // 
+            this.tabConsulta.Controls.Add(this.label1);
+            this.tabConsulta.Location = new System.Drawing.Point(4, 22);
+            this.tabConsulta.Name = "tabConsulta";
+            this.tabConsulta.Size = new System.Drawing.Size(612, 481);
+            this.tabConsulta.TabIndex = 3;
+            this.tabConsulta.Text = "Agendar Consulta";
+            this.tabConsulta.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -146,23 +138,103 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marcar uma Consulta";
             // 
+            // tabPac
+            // 
+            this.tabPac.Controls.Add(this.picReload);
+            this.tabPac.Controls.Add(this.label2);
+            this.tabPac.Controls.Add(this.dgvConsulta);
+            this.tabPac.Location = new System.Drawing.Point(4, 22);
+            this.tabPac.Name = "tabPac";
+            this.tabPac.Size = new System.Drawing.Size(612, 481);
+            this.tabPac.TabIndex = 2;
+            this.tabPac.Text = "Pacientes";
+            this.tabPac.UseVisualStyleBackColor = true;
+            // 
+            // tabCadPac
+            // 
+            this.tabCadPac.Controls.Add(this.pictureBox1);
+            this.tabCadPac.Location = new System.Drawing.Point(4, 22);
+            this.tabCadPac.Name = "tabCadPac";
+            this.tabCadPac.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadPac.Size = new System.Drawing.Size(612, 481);
+            this.tabCadPac.TabIndex = 1;
+            this.tabCadPac.Text = "Cadastro Paciente";
+            this.tabCadPac.UseVisualStyleBackColor = true;
+            // 
+            // picReload
+            // 
+            this.picReload.Image = ((System.Drawing.Image)(resources.GetObject("picReload.Image")));
+            this.picReload.Location = new System.Drawing.Point(543, 452);
+            this.picReload.Name = "picReload";
+            this.picReload.Size = new System.Drawing.Size(66, 26);
+            this.picReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picReload.TabIndex = 10;
+            this.picReload.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 452);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(394, 29);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Para mais informações, duplo clique no ID desejado";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvConsulta
+            // 
+            this.dgvConsulta.AllowUserToAddRows = false;
+            this.dgvConsulta.AllowUserToDeleteRows = false;
+            this.dgvConsulta.AllowUserToOrderColumns = true;
+            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Location = new System.Drawing.Point(3, 3);
+            this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
+            this.dgvConsulta.Size = new System.Drawing.Size(606, 443);
+            this.dgvConsulta.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(7, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(451, 406);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Sair";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 531);
             this.Controls.Add(this.tabMedico);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmMedico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.tabMedico.ResumeLayout(false);
-            this.tabAgenda.ResumeLayout(false);
-            this.tabConsulta.ResumeLayout(false);
-            this.tabConsulta.PerformLayout();
             this.tabHome.ResumeLayout(false);
             this.tabHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).EndInit();
+            this.tabAgenda.ResumeLayout(false);
+            this.tabConsulta.ResumeLayout(false);
+            this.tabConsulta.PerformLayout();
+            this.tabPac.ResumeLayout(false);
+            this.tabCadPac.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picReload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +251,10 @@
         private System.Windows.Forms.PictureBox picMedicoa;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picReload;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvConsulta;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
