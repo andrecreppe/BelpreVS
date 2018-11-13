@@ -253,7 +253,7 @@ public class Connection
     /// Obtém os dados da conexão em String
     /// </summary>
     /// <returns>Retorna os dados da conexão</returns>
-    public string ToString()
+    public string ConToString()
     {
         return con.ConnectionString;
     }

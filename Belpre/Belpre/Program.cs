@@ -17,10 +17,10 @@ namespace Belpre
         {
             /*Server CTI*/
 //            conexao = new Connection("200.145.153.175", "5432", "1_72A_AULAS_2018", "alunocti", "alunocti");
-            /*Localhost - André*/
-//           conexao = new Connection("localhost", "5432", "Belpre", "postgres", "060802");
+            /*Localhost - André's home*/
+           conexao = new Connection("localhost", "5432", "Belpre", "postgres", "060802");
             /*Localhost - LDI*/
-            conexao = new Connection("localhost", "5432", "Belpre", "postgres", "sqladmin");
+//            conexao = new Connection("localhost", "5432", "Belpre", "postgres", "sqladmin");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

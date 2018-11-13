@@ -141,3 +141,24 @@ C:\Users\ra1757047\Desktop\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csproj.Genera
 C:\Users\ra1757047\Desktop\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
 C:\Users\ra1757047\Desktop\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.exe
 C:\Users\ra1757047\Desktop\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\Belpre.exe.config
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\Npgsql.dll
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\Npgsql.xml
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csprojAssemblyReference.cache
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.frmLogin.resources
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.frmMASTER.resources
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.frmMedico.resources
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.frmPacientes.resources
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.Properties.Resources.resources
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csproj.GenerateResource.cache
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csproj.CoreCompileInputs.cache
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.csproj.CopyComplete
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.exe
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.pdb
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.dll
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.pdb
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.xml

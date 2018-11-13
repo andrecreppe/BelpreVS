@@ -105,8 +105,8 @@
             // 
             // tabHome
             // 
-            this.tabHome.Controls.Add(this.picAdmin);
             this.tabHome.Controls.Add(this.lblIntro);
+            this.tabHome.Controls.Add(this.picAdmin);
             this.tabHome.Controls.Add(this.btnReturn);
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
