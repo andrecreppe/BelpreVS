@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//User input
+    using FluentDateTime;
+    using Npgsql;
+    using static Belpre.Program;
 
 namespace Belpre
 {

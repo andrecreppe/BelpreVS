@@ -62,6 +62,8 @@
             this.tabCadPac = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.picConsulta = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabMedico.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).BeginInit();
@@ -69,10 +71,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).BeginInit();
             this.grpDomingo.SuspendLayout();
+            this.tabConsulta.SuspendLayout();
             this.tabPac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
+            this.tabCadPac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMedico
@@ -91,6 +97,7 @@
             // 
             // tabHome
             // 
+            this.tabHome.BackColor = System.Drawing.Color.White;
             this.tabHome.Controls.Add(this.label1);
             this.tabHome.Controls.Add(this.btnLogout);
             this.tabHome.Controls.Add(this.lblBemVindo);
@@ -100,7 +107,6 @@
             this.tabHome.Size = new System.Drawing.Size(895, 481);
             this.tabHome.TabIndex = 4;
             this.tabHome.Text = "Home";
-            this.tabHome.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
@@ -116,11 +122,11 @@
             // 
             this.lblBemVindo.AutoSize = true;
             this.lblBemVindo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBemVindo.Location = new System.Drawing.Point(89, 20);
+            this.lblBemVindo.Location = new System.Drawing.Point(507, 18);
             this.lblBemVindo.Name = "lblBemVindo";
-            this.lblBemVindo.Size = new System.Drawing.Size(141, 31);
+            this.lblBemVindo.Size = new System.Drawing.Size(252, 31);
             this.lblBemVindo.TabIndex = 1;
-            this.lblBemVindo.Text = "Bem vindo";
+            this.lblBemVindo.Text = "Bem vindo fulanooo";
             // 
             // picMedicoa
             // 
@@ -337,6 +343,7 @@
             // 
             // tabConsulta
             // 
+            this.tabConsulta.Controls.Add(this.picConsulta);
             this.tabConsulta.Location = new System.Drawing.Point(4, 22);
             this.tabConsulta.Name = "tabConsulta";
             this.tabConsulta.Size = new System.Drawing.Size(895, 481);
@@ -355,7 +362,7 @@
             this.tabPac.Name = "tabPac";
             this.tabPac.Size = new System.Drawing.Size(895, 481);
             this.tabPac.TabIndex = 2;
-            this.tabPac.Text = "Pacientes";
+            this.tabPac.Text = "Meus Pacientes";
             this.tabPac.UseVisualStyleBackColor = true;
             // 
             // lblRetorno
@@ -410,6 +417,7 @@
             // 
             // tabCadPac
             // 
+            this.tabCadPac.Controls.Add(this.pictureBox1);
             this.tabCadPac.Location = new System.Drawing.Point(4, 22);
             this.tabCadPac.Name = "tabCadPac";
             this.tabCadPac.Padding = new System.Windows.Forms.Padding(3);
@@ -421,10 +429,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(593, 119);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(465, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 31);
+            this.label1.Size = new System.Drawing.Size(132, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "estatisticas?";
             // 
@@ -435,6 +443,26 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(102, 404);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // picConsulta
+            // 
+            this.picConsulta.Image = ((System.Drawing.Image)(resources.GetObject("picConsulta.Image")));
+            this.picConsulta.Location = new System.Drawing.Point(562, 3);
+            this.picConsulta.Name = "picConsulta";
+            this.picConsulta.Size = new System.Drawing.Size(330, 372);
+            this.picConsulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picConsulta.TabIndex = 0;
+            this.picConsulta.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(575, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(314, 323);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMedico
             // 
@@ -457,11 +485,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).EndInit();
             this.grpDomingo.ResumeLayout(false);
+            this.tabConsulta.ResumeLayout(false);
             this.tabPac.ResumeLayout(false);
             this.tabPac.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
+            this.tabCadPac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,5 +533,7 @@
         private System.Windows.Forms.Button btnHoje;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox picConsulta;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -131,5 +131,8 @@ namespace Belpre
                     lblSabado.ForeColor = Color.Black;
             }
         }
+
+        //cada DGV tem um request data baseado na data que colocamos no label em cima
+        //fazer uma funcao geral que retorna pra cada item
     }
 }

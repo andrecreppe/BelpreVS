@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Npgsql;
-using static Belpre.Program;
+//User input
+    using Npgsql;
+    using static Belpre.Program;
 
 namespace Belpre
 {
