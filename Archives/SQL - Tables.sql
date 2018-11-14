@@ -61,7 +61,9 @@ CREATE TABLE consultas
     id_cons     BIGINT Default nextval('id_cons_seq') NOT NULL,
     id_med      INT NOT NULL,
     id_pac      INT NOT NULL,
-    data_cons   DATE NOT NULL, 
+    data_cons   DATE NOT NULL,
+    hora_cons   CHARACTER VARYING(6) NOT NULL,
+    tipo        CHARACTER VARYING(20) NOT NULL,
     convenio    CHARACTER VARYING(20) NOT NULL,
 	excluido	BOOLEAN NOT NULL,
     

@@ -85,9 +85,9 @@ namespace Belpre
 
                 //Teste de usuários normais
                 if (radPaciente.Checked)
-                    sql = "SELECT nome, sexo, senha, exlcuido FROM pacientes WHERE cpf = " + cpf;
+                    sql = "SELECT * FROM pacientes WHERE cpf = " + cpf;
                 else
-                    sql = "SELECT nome, sexo, senha, excluido FROM medicos WHERE cpf = " + cpf;
+                    sql = "SELECT * FROM medicos WHERE cpf = " + cpf;
 
                 NpgsqlDataReader dr = conexao.Select(sql);
                 if (dr.Read())
@@ -96,7 +96,8 @@ namespace Belpre
                     if(cripto.ComparaMD5(txtSenha.Text, dr["senha"].ToString())
                         && !radPaciente.Checked && dr["excluido"].ToString() == "False")
                     {
-                        frmMedico med = new frmMedico(dr["nome"].ToString(), dr["sexo"].ToString());
+                        frmMedico med = 
+                            new frmMedico(dr["nome"].ToString(), dr["sexo"].ToString(), Convert.ToInt32(dr["id_med"]));
 
                         dr.Close();
 

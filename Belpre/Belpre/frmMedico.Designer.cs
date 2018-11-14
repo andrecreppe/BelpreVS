@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMedico));
             this.tabMedico = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHoje = new System.Windows.Forms.Label();
+            this.lblConsultas = new System.Windows.Forms.Label();
+            this.lblVocePossui = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblBemVindo = new System.Windows.Forms.Label();
             this.picMedicoa = new System.Windows.Forms.PictureBox();
@@ -48,13 +51,28 @@
             this.lblQuarta = new System.Windows.Forms.Label();
             this.lblSegunda = new System.Windows.Forms.Label();
             this.grpDomingo = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDom = new System.Windows.Forms.DataGridView();
             this.grpSabado = new System.Windows.Forms.GroupBox();
             this.grpSexta = new System.Windows.Forms.GroupBox();
             this.grpQuinta = new System.Windows.Forms.GroupBox();
             this.grpQuarta = new System.Windows.Forms.GroupBox();
             this.grpTerca = new System.Windows.Forms.GroupBox();
             this.tabConsulta = new System.Windows.Forms.TabPage();
+            this.cmbIDOculto = new System.Windows.Forms.ComboBox();
+            this.cmbPacientes = new System.Windows.Forms.ComboBox();
+            this.btnLimpaConsulta = new System.Windows.Forms.Button();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.chkParticular = new System.Windows.Forms.CheckBox();
+            this.cmbConvenio = new System.Windows.Forms.ComboBox();
+            this.lblM = new System.Windows.Forms.Label();
+            this.lblH = new System.Windows.Forms.Label();
+            this.cmbMinutos = new System.Windows.Forms.ComboBox();
+            this.cmbHora = new System.Windows.Forms.ComboBox();
+            this.mskDiaConsulta = new System.Windows.Forms.MaskedTextBox();
+            this.lblConvenio = new System.Windows.Forms.Label();
+            this.lblHorario = new System.Windows.Forms.Label();
+            this.lblDia = new System.Windows.Forms.Label();
+            this.lblPaciente = new System.Windows.Forms.Label();
             this.picConsulta = new System.Windows.Forms.PictureBox();
             this.tabPac = new System.Windows.Forms.TabPage();
             this.lblRetorno = new System.Windows.Forms.Label();
@@ -89,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).BeginInit();
             this.grpDomingo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDom)).BeginInit();
             this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).BeginInit();
             this.tabPac.SuspendLayout();
@@ -117,7 +135,10 @@
             // tabHome
             // 
             this.tabHome.BackColor = System.Drawing.Color.White;
-            this.tabHome.Controls.Add(this.label1);
+            this.tabHome.Controls.Add(this.lblHoje);
+            this.tabHome.Controls.Add(this.lblConsultas);
+            this.tabHome.Controls.Add(this.lblVocePossui);
+            this.tabHome.Controls.Add(this.lblData);
             this.tabHome.Controls.Add(this.btnLogout);
             this.tabHome.Controls.Add(this.lblBemVindo);
             this.tabHome.Controls.Add(this.picMedicoa);
@@ -127,34 +148,64 @@
             this.tabHome.TabIndex = 4;
             this.tabHome.Text = "Home";
             // 
-            // label1
+            // lblHoje
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(465, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "estatisticas?";
+            this.lblHoje.AutoSize = true;
+            this.lblHoje.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoje.Location = new System.Drawing.Point(643, 143);
+            this.lblHoje.Name = "lblHoje";
+            this.lblHoje.Size = new System.Drawing.Size(121, 29);
+            this.lblHoje.TabIndex = 6;
+            this.lblHoje.Text = "xx/xx/xxxx";
+            // 
+            // lblConsultas
+            // 
+            this.lblConsultas.AutoSize = true;
+            this.lblConsultas.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsultas.Location = new System.Drawing.Point(643, 222);
+            this.lblConsultas.Name = "lblConsultas";
+            this.lblConsultas.Size = new System.Drawing.Size(137, 29);
+            this.lblConsultas.TabIndex = 5;
+            this.lblConsultas.Text = "X Consultas!";
+            // 
+            // lblVocePossui
+            // 
+            this.lblVocePossui.AutoSize = true;
+            this.lblVocePossui.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVocePossui.Location = new System.Drawing.Point(453, 222);
+            this.lblVocePossui.Name = "lblVocePossui";
+            this.lblVocePossui.Size = new System.Drawing.Size(184, 29);
+            this.lblVocePossui.TabIndex = 4;
+            this.lblVocePossui.Text = "Hoje você possui:";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(499, 143);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(138, 29);
+            this.lblData.TabIndex = 3;
+            this.lblData.Text = "Dia de Hoje: ";
             // 
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(371, 423);
+            this.btnLogout.Location = new System.Drawing.Point(371, 412);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(521, 46);
+            this.btnLogout.Size = new System.Drawing.Size(521, 57);
             this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Sair";
+            this.btnLogout.Text = "&Sair";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblBemVindo
             // 
             this.lblBemVindo.AutoSize = true;
-            this.lblBemVindo.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBemVindo.Location = new System.Drawing.Point(507, 18);
+            this.lblBemVindo.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBemVindo.Location = new System.Drawing.Point(507, 16);
             this.lblBemVindo.Name = "lblBemVindo";
-            this.lblBemVindo.Size = new System.Drawing.Size(252, 36);
+            this.lblBemVindo.Size = new System.Drawing.Size(263, 36);
             this.lblBemVindo.TabIndex = 1;
             this.lblBemVindo.Text = "Bem vindo fulanooo";
             // 
@@ -313,7 +364,7 @@
             // 
             // grpDomingo
             // 
-            this.grpDomingo.Controls.Add(this.dataGridView1);
+            this.grpDomingo.Controls.Add(this.dgvDom);
             this.grpDomingo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpDomingo.Location = new System.Drawing.Point(47, 43);
             this.grpDomingo.Name = "grpDomingo";
@@ -322,13 +373,13 @@
             this.grpDomingo.TabStop = false;
             this.grpDomingo.Text = "Domingo";
             // 
-            // dataGridView1
+            // dgvDom
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(102, 404);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDom.Location = new System.Drawing.Point(7, 22);
+            this.dgvDom.Name = "dgvDom";
+            this.dgvDom.Size = new System.Drawing.Size(102, 404);
+            this.dgvDom.TabIndex = 0;
             // 
             // grpSabado
             // 
@@ -382,6 +433,21 @@
             // 
             // tabConsulta
             // 
+            this.tabConsulta.Controls.Add(this.cmbIDOculto);
+            this.tabConsulta.Controls.Add(this.cmbPacientes);
+            this.tabConsulta.Controls.Add(this.btnLimpaConsulta);
+            this.tabConsulta.Controls.Add(this.btnAgendar);
+            this.tabConsulta.Controls.Add(this.chkParticular);
+            this.tabConsulta.Controls.Add(this.cmbConvenio);
+            this.tabConsulta.Controls.Add(this.lblM);
+            this.tabConsulta.Controls.Add(this.lblH);
+            this.tabConsulta.Controls.Add(this.cmbMinutos);
+            this.tabConsulta.Controls.Add(this.cmbHora);
+            this.tabConsulta.Controls.Add(this.mskDiaConsulta);
+            this.tabConsulta.Controls.Add(this.lblConvenio);
+            this.tabConsulta.Controls.Add(this.lblHorario);
+            this.tabConsulta.Controls.Add(this.lblDia);
+            this.tabConsulta.Controls.Add(this.lblPaciente);
             this.tabConsulta.Controls.Add(this.picConsulta);
             this.tabConsulta.Location = new System.Drawing.Point(4, 22);
             this.tabConsulta.Name = "tabConsulta";
@@ -390,10 +456,178 @@
             this.tabConsulta.Text = "Agendar Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
             // 
+            // cmbIDOculto
+            // 
+            this.cmbIDOculto.FormattingEnabled = true;
+            this.cmbIDOculto.Location = new System.Drawing.Point(185, 95);
+            this.cmbIDOculto.Name = "cmbIDOculto";
+            this.cmbIDOculto.Size = new System.Drawing.Size(121, 21);
+            this.cmbIDOculto.TabIndex = 23;
+            // 
+            // cmbPacientes
+            // 
+            this.cmbPacientes.DropDownHeight = 200;
+            this.cmbPacientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPacientes.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPacientes.FormattingEnabled = true;
+            this.cmbPacientes.IntegralHeight = false;
+            this.cmbPacientes.Location = new System.Drawing.Point(185, 45);
+            this.cmbPacientes.Name = "cmbPacientes";
+            this.cmbPacientes.Size = new System.Drawing.Size(164, 34);
+            this.cmbPacientes.TabIndex = 22;
+            this.cmbPacientes.SelectedIndexChanged += new System.EventHandler(this.cmbPacientes_SelectedIndexChanged);
+            // 
+            // btnLimpaConsulta
+            // 
+            this.btnLimpaConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpaConsulta.Location = new System.Drawing.Point(280, 375);
+            this.btnLimpaConsulta.Name = "btnLimpaConsulta";
+            this.btnLimpaConsulta.Size = new System.Drawing.Size(163, 42);
+            this.btnLimpaConsulta.TabIndex = 21;
+            this.btnLimpaConsulta.Text = "&Limpar";
+            this.btnLimpaConsulta.UseVisualStyleBackColor = true;
+            this.btnLimpaConsulta.Click += new System.EventHandler(this.btnLimpaConsulta_Click);
+            // 
+            // btnAgendar
+            // 
+            this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgendar.Location = new System.Drawing.Point(54, 375);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(163, 42);
+            this.btnAgendar.TabIndex = 20;
+            this.btnAgendar.Text = "&Agendar";
+            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
+            // 
+            // chkParticular
+            // 
+            this.chkParticular.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkParticular.Location = new System.Drawing.Point(365, 254);
+            this.chkParticular.Name = "chkParticular";
+            this.chkParticular.Size = new System.Drawing.Size(123, 53);
+            this.chkParticular.TabIndex = 19;
+            this.chkParticular.Text = "&Consulta particular?";
+            this.chkParticular.UseVisualStyleBackColor = true;
+            this.chkParticular.CheckedChanged += new System.EventHandler(this.chkParticular_CheckedChanged);
+            // 
+            // cmbConvenio
+            // 
+            this.cmbConvenio.DropDownHeight = 200;
+            this.cmbConvenio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbConvenio.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbConvenio.FormattingEnabled = true;
+            this.cmbConvenio.IntegralHeight = false;
+            this.cmbConvenio.Items.AddRange(new object[] {
+            "Amil",
+            "APAS",
+            "Bradesco Saúde",
+            "São Lucas",
+            "SulAmérica",
+            "Unimed"});
+            this.cmbConvenio.Location = new System.Drawing.Point(185, 263);
+            this.cmbConvenio.Name = "cmbConvenio";
+            this.cmbConvenio.Size = new System.Drawing.Size(164, 34);
+            this.cmbConvenio.Sorted = true;
+            this.cmbConvenio.TabIndex = 18;
+            // 
+            // lblM
+            // 
+            this.lblM.AutoSize = true;
+            this.lblM.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblM.Location = new System.Drawing.Point(344, 213);
+            this.lblM.Name = "lblM";
+            this.lblM.Size = new System.Drawing.Size(49, 25);
+            this.lblM.TabIndex = 17;
+            this.lblM.Text = "min";
+            // 
+            // lblH
+            // 
+            this.lblH.AutoSize = true;
+            this.lblH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblH.Location = new System.Drawing.Point(249, 212);
+            this.lblH.Name = "lblH";
+            this.lblH.Size = new System.Drawing.Size(25, 25);
+            this.lblH.TabIndex = 16;
+            this.lblH.Text = "h";
+            // 
+            // cmbMinutos
+            // 
+            this.cmbMinutos.DropDownHeight = 200;
+            this.cmbMinutos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMinutos.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMinutos.FormattingEnabled = true;
+            this.cmbMinutos.IntegralHeight = false;
+            this.cmbMinutos.Location = new System.Drawing.Point(280, 204);
+            this.cmbMinutos.Name = "cmbMinutos";
+            this.cmbMinutos.Size = new System.Drawing.Size(61, 34);
+            this.cmbMinutos.TabIndex = 15;
+            // 
+            // cmbHora
+            // 
+            this.cmbHora.DropDownHeight = 200;
+            this.cmbHora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHora.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbHora.FormattingEnabled = true;
+            this.cmbHora.IntegralHeight = false;
+            this.cmbHora.Location = new System.Drawing.Point(185, 204);
+            this.cmbHora.Name = "cmbHora";
+            this.cmbHora.Size = new System.Drawing.Size(61, 34);
+            this.cmbHora.TabIndex = 14;
+            // 
+            // mskDiaConsulta
+            // 
+            this.mskDiaConsulta.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskDiaConsulta.Location = new System.Drawing.Point(185, 144);
+            this.mskDiaConsulta.Mask = "00/00/0000";
+            this.mskDiaConsulta.Name = "mskDiaConsulta";
+            this.mskDiaConsulta.Size = new System.Drawing.Size(131, 37);
+            this.mskDiaConsulta.TabIndex = 13;
+            this.mskDiaConsulta.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblConvenio
+            // 
+            this.lblConvenio.AutoSize = true;
+            this.lblConvenio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConvenio.Location = new System.Drawing.Point(40, 266);
+            this.lblConvenio.Name = "lblConvenio";
+            this.lblConvenio.Size = new System.Drawing.Size(118, 25);
+            this.lblConvenio.TabIndex = 5;
+            this.lblConvenio.Text = "Convênio:";
+            // 
+            // lblHorario
+            // 
+            this.lblHorario.AutoSize = true;
+            this.lblHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHorario.Location = new System.Drawing.Point(62, 207);
+            this.lblHorario.Name = "lblHorario";
+            this.lblHorario.Size = new System.Drawing.Size(96, 25);
+            this.lblHorario.TabIndex = 4;
+            this.lblHorario.Text = "Horario:";
+            // 
+            // lblDia
+            // 
+            this.lblDia.AutoSize = true;
+            this.lblDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Location = new System.Drawing.Point(104, 150);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(54, 25);
+            this.lblDia.TabIndex = 3;
+            this.lblDia.Text = "Dia:";
+            // 
+            // lblPaciente
+            // 
+            this.lblPaciente.AutoSize = true;
+            this.lblPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaciente.Location = new System.Drawing.Point(47, 48);
+            this.lblPaciente.Name = "lblPaciente";
+            this.lblPaciente.Size = new System.Drawing.Size(111, 25);
+            this.lblPaciente.TabIndex = 1;
+            this.lblPaciente.Text = "Paciente:";
+            // 
             // picConsulta
             // 
             this.picConsulta.Image = ((System.Drawing.Image)(resources.GetObject("picConsulta.Image")));
-            this.picConsulta.Location = new System.Drawing.Point(562, 3);
+            this.picConsulta.Location = new System.Drawing.Point(545, 45);
             this.picConsulta.Name = "picConsulta";
             this.picConsulta.Size = new System.Drawing.Size(330, 372);
             this.picConsulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -466,7 +700,6 @@
             this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.Size = new System.Drawing.Size(543, 443);
             this.dgvConsulta.TabIndex = 8;
-            this.dgvConsulta.DoubleClick += new System.EventHandler(this.dgvConsulta_DoubleClick);
             // 
             // tabCadastro
             // 
@@ -706,8 +939,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).EndInit();
             this.grpDomingo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDom)).EndInit();
             this.tabConsulta.ResumeLayout(false);
+            this.tabConsulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).EndInit();
             this.tabPac.ResumeLayout(false);
             this.tabPac.PerformLayout();
@@ -753,8 +987,8 @@
         private System.Windows.Forms.PictureBox picVoltar;
         private System.Windows.Forms.PictureBox picAvancar;
         private System.Windows.Forms.Button btnHoje;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.DataGridView dgvDom;
         private System.Windows.Forms.PictureBox picConsulta;
         private System.Windows.Forms.PictureBox picCadastro;
         private System.Windows.Forms.Label lblSenhaCad;
@@ -775,5 +1009,23 @@
         private System.Windows.Forms.MaskedTextBox mskNascmCad;
         private System.Windows.Forms.MaskedTextBox mskCellCad;
         private System.Windows.Forms.MaskedTextBox mskCPFCad;
+        private System.Windows.Forms.Label lblHoje;
+        private System.Windows.Forms.Label lblConsultas;
+        private System.Windows.Forms.Label lblVocePossui;
+        private System.Windows.Forms.Label lblConvenio;
+        private System.Windows.Forms.Label lblHorario;
+        private System.Windows.Forms.Label lblDia;
+        private System.Windows.Forms.Label lblPaciente;
+        private System.Windows.Forms.ComboBox cmbHora;
+        private System.Windows.Forms.MaskedTextBox mskDiaConsulta;
+        private System.Windows.Forms.ComboBox cmbMinutos;
+        private System.Windows.Forms.Label lblM;
+        private System.Windows.Forms.Label lblH;
+        private System.Windows.Forms.CheckBox chkParticular;
+        private System.Windows.Forms.ComboBox cmbConvenio;
+        private System.Windows.Forms.ComboBox cmbPacientes;
+        private System.Windows.Forms.Button btnLimpaConsulta;
+        private System.Windows.Forms.Button btnAgendar;
+        private System.Windows.Forms.ComboBox cmbIDOculto;
     }
 }
