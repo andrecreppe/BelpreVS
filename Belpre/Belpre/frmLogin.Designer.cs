@@ -45,10 +45,10 @@
             // 
             this.radPaciente.AutoSize = true;
             this.radPaciente.Checked = true;
-            this.radPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radPaciente.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radPaciente.Location = new System.Drawing.Point(142, 274);
             this.radPaciente.Name = "radPaciente";
-            this.radPaciente.Size = new System.Drawing.Size(101, 28);
+            this.radPaciente.Size = new System.Drawing.Size(103, 30);
             this.radPaciente.TabIndex = 3;
             this.radPaciente.TabStop = true;
             this.radPaciente.Text = "&Paciente";
@@ -57,10 +57,10 @@
             // radMedico
             // 
             this.radMedico.AutoSize = true;
-            this.radMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMedico.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radMedico.Location = new System.Drawing.Point(271, 274);
             this.radMedico.Name = "radMedico";
-            this.radMedico.Size = new System.Drawing.Size(91, 28);
+            this.radMedico.Size = new System.Drawing.Size(94, 30);
             this.radMedico.TabIndex = 4;
             this.radMedico.TabStop = true;
             this.radMedico.Text = "&Médico";
@@ -68,37 +68,37 @@
             // 
             // mskCPF
             // 
-            this.mskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCPF.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCPF.Location = new System.Drawing.Point(204, 151);
             this.mskCPF.Mask = "000,000,000-00";
             this.mskCPF.Name = "mskCPF";
-            this.mskCPF.Size = new System.Drawing.Size(150, 29);
+            this.mskCPF.Size = new System.Drawing.Size(150, 33);
             this.mskCPF.TabIndex = 1;
             this.mskCPF.ValidatingType = typeof(int);
             // 
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPF.Location = new System.Drawing.Point(148, 154);
+            this.lblCPF.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.Location = new System.Drawing.Point(147, 150);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(56, 24);
+            this.lblCPF.Size = new System.Drawing.Size(57, 29);
             this.lblCPF.TabIndex = 3;
             this.lblCPF.Text = "CPF:";
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(125, 202);
+            this.lblSenha.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.Location = new System.Drawing.Point(124, 198);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(76, 24);
+            this.lblSenha.Size = new System.Drawing.Size(81, 29);
             this.lblSenha.TabIndex = 4;
             this.lblSenha.Text = "Senha:";
             // 
             // btnLogar
             // 
-            this.btnLogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogar.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogar.Location = new System.Drawing.Point(153, 345);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(201, 45);
@@ -109,12 +109,12 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(204, 199);
             this.txtSenha.MaxLength = 30;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(150, 29);
+            this.txtSenha.Size = new System.Drawing.Size(150, 33);
             this.txtSenha.TabIndex = 2;
             this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             this.txtSenha.Enter += new System.EventHandler(this.txtSenha_Enter);
@@ -132,11 +132,11 @@
             // txtAviso
             // 
             this.txtAviso.AutoSize = true;
-            this.txtAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAviso.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAviso.ForeColor = System.Drawing.Color.Red;
-            this.txtAviso.Location = new System.Drawing.Point(360, 205);
+            this.txtAviso.Location = new System.Drawing.Point(360, 209);
             this.txtAviso.Name = "txtAviso";
-            this.txtAviso.Size = new System.Drawing.Size(41, 16);
+            this.txtAviso.Size = new System.Drawing.Size(40, 18);
             this.txtAviso.TabIndex = 8;
             this.txtAviso.Text = "aviso";
             // 

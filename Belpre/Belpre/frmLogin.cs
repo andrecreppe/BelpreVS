@@ -85,16 +85,16 @@ namespace Belpre
 
                 //Teste de usuários normais
                 if (radPaciente.Checked)
-                    sql = "SELECT nome, sexo, senha FROM pacientes WHERE cpf = " + cpf;
+                    sql = "SELECT nome, sexo, senha, exlcuido FROM pacientes WHERE cpf = " + cpf;
                 else
-                    sql = "SELECT nome, sexo, senha FROM medicos WHERE cpf = " + cpf;
+                    sql = "SELECT nome, sexo, senha, excluido FROM medicos WHERE cpf = " + cpf;
 
                 NpgsqlDataReader dr = conexao.Select(sql);
                 if (dr.Read())
                 {
                     //Testar se ele é médico
                     if(cripto.ComparaMD5(txtSenha.Text, dr["senha"].ToString())
-                        && !radPaciente.Checked)
+                        && !radPaciente.Checked && dr["excluido"].ToString() == "False")
                     {
                         frmMedico med = new frmMedico(dr["nome"].ToString(), dr["sexo"].ToString());
 
@@ -106,7 +106,7 @@ namespace Belpre
                     }
                     //Testar se ele 
                     else if(cripto.ComparaMD5(txtSenha.Text, dr["senha"].ToString())
-                        && radPaciente.Checked)
+                        && radPaciente.Checked && dr["excluido"].ToString() == "False")
                     {
                         frmPacientes pac = new frmPacientes(dr["nome"].ToString(), dr["sexo"].ToString());
 
@@ -116,15 +116,29 @@ namespace Belpre
                         pac.ShowDialog();
                         this.Close();
                     }
-                    //Erro na Senha
+                    //Erros
                     else
                     {
-                        dr.Close();
+                        //Ele está excluido
+                        if(dr["excluido"].ToString() == "True")
+                        {
+                            dr.Close();
 
-                        MessageBox.Show("SENHA inválida! Redigite.", "Belpre",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Erro! Este usuário está DESATIVADO!", "Belpre",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        txtSenha.Text = "";
+                            LimpaCampos();
+                        }
+                        else //Na senha
+                        {
+                            dr.Close();
+
+                            MessageBox.Show("SENHA inválida! Redigite.", "Belpre",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            txtSenha.Text = "";
+                            txtSenha.Focus();
+                        }
                     }
                 }
                 //Erro no CPF
@@ -135,11 +149,7 @@ namespace Belpre
                     MessageBox.Show("CPF invalido ou inexistente! Redigite.", "Belpre",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    mskCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    mskCPF.Text = "";
-                    mskCPF.TextMaskFormat = MaskFormat.IncludeLiterals;
-
-                    txtSenha.Text = "";
+                    LimpaCampos();
                 }
             }
             catch(Exception ex)
@@ -147,6 +157,17 @@ namespace Belpre
                 MessageBox.Show("Ocorreu um erro durante a operação!" + "\n\nMais informações: " + ex.Message,
                     "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LimpaCampos()
+        {
+            mskCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            mskCPF.Text = "";
+            mskCPF.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+            txtSenha.Text = "";
+
+            mskCPF.Focus();
         }
     }
 }

@@ -34,6 +34,8 @@ namespace Belpre
             tabAdmin.SelectedIndex = 2;
         }
 
+        //-----------------------------------------------------------------------------------------------------------//
+
         //Efetua o cadastro no banco
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -179,6 +181,8 @@ namespace Belpre
             radMascCad.Checked = false;
         }
 
+        //-----------------------------------------------------------------------------------------------------------//
+
         //Voltar ao form de LOGIN
         private void btnReturn_Click(object sender, EventArgs e)
         {
@@ -187,6 +191,8 @@ namespace Belpre
             login.ShowDialog();
             this.Close();
         }
+
+        //-----------------------------------------------------------------------------------------------------------//
 
         //Entrou na aba de consulta
         private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
@@ -243,6 +249,8 @@ namespace Belpre
             }
         }
 
+        //-----------------------------------------------------------------------------------------------------------//
+
         //Carrega um CPF
         private void mskCPFAlt_Validating(object sender, CancelEventArgs e)
         {
@@ -272,6 +280,20 @@ namespace Belpre
                             radMascAlt.Checked = true;
                         else
                             radFemAlt.Checked = true;
+                        if (dr["excluido"].ToString() == "False")
+                        {
+                            if (radFemAlt.Checked)
+                                btnEstado.Text = "&Excluir Médica";
+                            else
+                                btnEstado.Text = "&Excluir Médico";
+                        }
+                        else
+                        {
+                            if (radFemAlt.Checked)
+                                btnEstado.Text = "&Reativar Médica";
+                            else
+                                btnEstado.Text = "&Reativar Médico";
+                        }
                     }
                     else
                     {
@@ -290,6 +312,8 @@ namespace Belpre
             {
                 MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                mskCPFAlt.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
         }
 
@@ -419,6 +443,53 @@ namespace Belpre
                 LimpaCamposAlt();
             }
             catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEstado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<object> param = new List<object>();
+                string op, sql;
+
+                if (btnEstado.Text == "&Excluir Médica" || btnEstado.Text == "&Excluir Médico")
+                    op = "excluir";
+                else
+                    op = "reativar";
+
+                DialogResult resp = MessageBox.Show("Deseja realmente " + op + " " + txtNomeAlt.Text + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resp == DialogResult.Yes)
+                {
+                    //O estado do paciente
+                    if (op == "excluir")
+                        param.Add(true);
+                    else
+                        param.Add(false);
+
+                    //pega o cpf
+                    mskCPFAlt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        param.Add(Convert.ToInt64(mskCPFAlt.Text));
+                    mskCPFAlt.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                    sql = "UPDATE medicos SET " +
+                            "excluido=@1 " +
+                            "WHERE cpf=@2";
+
+                    conexao.Run(sql, param);
+
+                    MessageBox.Show("Usuário alterado com sucesso!\n", "Belpre",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpaCamposAlt();
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

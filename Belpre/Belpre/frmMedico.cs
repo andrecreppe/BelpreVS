@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 //User input
     using FluentDateTime;
     using Npgsql;
@@ -19,6 +20,8 @@ namespace Belpre
         private string logado, sexo;
 
         private int index_agenda = 0;
+
+        Criptografia cripto = new Criptografia();
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -39,7 +42,7 @@ namespace Belpre
             picMedicoa.Image = Image.FromFile(@"Images\" + sexo + ".png");
         }
 
-        //----------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------//
 
         private void tabMedico_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -48,7 +51,13 @@ namespace Belpre
                 index_agenda = 0;
                 UpdateDateAgenda(index_agenda);
             }
+            else if(tabMedico.SelectedIndex == 3) //Pacientes
+            {
+                LoadPacientes();
+            }
         }
+
+        //--------------------------------------------------------------------------------------//
 
         private void picAvancar_Click(object sender, EventArgs e)
         {
@@ -60,7 +69,6 @@ namespace Belpre
             index_agenda--;
             UpdateDateAgenda(index_agenda);
         }
-
         private void btnHoje_Click(object sender, EventArgs e)
         {
             index_agenda = 0;
@@ -132,7 +140,209 @@ namespace Belpre
             }
         }
 
+        //--------------------------------------------------------------------------------------//
+
         //cada DGV tem um request data baseado na data que colocamos no label em cima
         //fazer uma funcao geral que retorna pra cada item
+
+        //--------------------------------------------------------------------------------------//
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<object> param = new List<object>();
+
+                string sql;
+
+                //Campo NOME
+                if (!String.IsNullOrWhiteSpace(txtNomeCad.Text))
+                    param.Add(txtNomeCad.Text);
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo SOBRENOME
+                if (!String.IsNullOrWhiteSpace(txtSobreCad.Text))
+                    param.Add(txtSobreCad.Text);
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo CPF
+                if (!String.IsNullOrWhiteSpace(mskCPFCad.Text))
+                {
+                    frmLogin login = new frmLogin();
+
+                    mskCPFCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                    if (mskCPFCad.Text == login.getCPF_Mestre())
+                    {
+                        MessageBox.Show("Esse CPF não pode ser utilizado!\nDigite outro no lugar.", "Belpre",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    param.Add(Convert.ToInt64(mskCPFCad.Text));
+                    mskCPFCad.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo SEXO
+                if (radFemCad.Checked)
+                    param.Add("F");
+                else if (radMascCad.Checked)
+                    param.Add("M");
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo NASCIMENTO
+                if (!String.IsNullOrWhiteSpace(mskNascmCad.Text))
+                {
+                    try
+                    {
+                        CultureInfo culture = new CultureInfo("pt-BR");
+                        DateTime data_com_hora = Convert.ToDateTime(mskNascmCad.Text, culture);
+
+                        param.Add(data_com_hora.Date);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo CELULAR
+                if (!String.IsNullOrWhiteSpace(mskCellCad.Text))
+                {
+                    mskCellCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                    param.Add(Convert.ToInt64(mskCellCad.Text));
+
+                    mskCellCad.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo SENHA
+                if (!String.IsNullOrWhiteSpace(txtSenhaCad.Text))
+                    param.Add(cripto.RetornarMD5(txtSenhaCad.Text));
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+
+                //Envia ao banco de dados
+                sql = "INSERT INTO pacientes VALUES" +
+                    "(DEFAULT, @1, @2, @3, @4, @5, @6, @7, 'FALSE');";
+
+                conexao.Run(sql, param);
+
+                MessageBox.Show("Cadastro efetuado com sucesso!\n" + "Bem-vindo a Belpre, " + txtNomeCad.Text + "!",
+                    "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpaCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        private void ErroPreenchimento()
+        {
+            MessageBox.Show("Existem campos sem preencher!", "Belpre",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnLimpaCad_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
+        }
+        private void LimpaCampos()
+        {
+            txtNomeCad.Text = "";
+            txtSobreCad.Text = "";
+            txtSenhaCad.Text = "";
+
+            mskCellCad.Text = "";
+            mskCPFCad.Text = "";
+            mskNascmCad.Text = "";
+
+            radFemCad.Checked = false;
+            radMascCad.Checked = false;
+        }
+
+        //--------------------------------------------------------------------------------------//
+
+        private void LoadPacientes()
+        {
+            try
+            {
+                string sql = "SELECT nome, sobrenome, cpf, celular, data_nascm " +
+                        " FROM pacientes " +
+                        "ORDER BY id_pac;";
+
+                DataSet ds = new DataSet();
+                ds = conexao.SelectDataSet(sql);
+
+                //Carregar o grid com os dados do DatSet
+                dgvConsulta.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void picReload_Click(object sender, EventArgs e)
+        {
+            dgvConsulta.Refresh();
+            dgvConsulta.DataSource = null;
+
+            LoadPacientes();
+        }
+
+        private void dgvConsulta_DoubleClick(object sender, EventArgs e)
+        {
+            /*
+            try
+            {
+                Int64 cpf = Convert.ToInt64(dgvConsulta.Rows[dgvConsulta.CurrentRow.Index].Cells[3].Value);
+
+                mskCPFAlt.Text = cpf.ToString();
+                tabAdmin.SelectedIndex = 3;
+
+                mskCPFAlt_Validating(mskCPFAlt.Text, new CancelEventArgs());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            */
+        }
+
+        //--------------------------------------------------------------------------------------//
     }
 }

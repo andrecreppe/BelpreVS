@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMASTER));
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.picAdmin = new System.Windows.Forms.PictureBox();
             this.lblIntro = new System.Windows.Forms.Label();
+            this.picAdmin = new System.Windows.Forms.PictureBox();
             this.btnReturn = new System.Windows.Forms.Button();
             this.tabCadastro = new System.Windows.Forms.TabPage();
             this.btnLimparCad = new System.Windows.Forms.Button();
@@ -116,6 +116,16 @@
             this.tabHome.Text = " Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
+            // lblIntro
+            // 
+            this.lblIntro.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntro.Location = new System.Drawing.Point(3, 3);
+            this.lblIntro.Name = "lblIntro";
+            this.lblIntro.Size = new System.Drawing.Size(441, 50);
+            this.lblIntro.TabIndex = 6;
+            this.lblIntro.Text = "Bem-vindo(a) à pagina Administrativa!";
+            this.lblIntro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // picAdmin
             // 
             this.picAdmin.Image = ((System.Drawing.Image)(resources.GetObject("picAdmin.Image")));
@@ -126,19 +136,9 @@
             this.picAdmin.TabIndex = 7;
             this.picAdmin.TabStop = false;
             // 
-            // lblIntro
-            // 
-            this.lblIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIntro.Location = new System.Drawing.Point(3, 3);
-            this.lblIntro.Name = "lblIntro";
-            this.lblIntro.Size = new System.Drawing.Size(441, 50);
-            this.lblIntro.TabIndex = 6;
-            this.lblIntro.Text = "Bem-vindo(a) à pagina Administrativa!";
-            this.lblIntro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnReturn
             // 
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(117, 346);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(210, 56);
@@ -378,7 +378,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 394);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(394, 29);
@@ -438,6 +438,7 @@
             this.btnEstado.TabIndex = 69;
             this.btnEstado.Text = "&Excluir Médico";
             this.btnEstado.UseVisualStyleBackColor = true;
+            this.btnEstado.Click += new System.EventHandler(this.btnEstado_Click);
             // 
             // mskCPFAlt
             // 
