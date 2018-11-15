@@ -65,6 +65,7 @@ CREATE TABLE consultas
     hora_cons   CHARACTER VARYING(6) NOT NULL,
     tipo        CHARACTER VARYING(20) NOT NULL,
     convenio    CHARACTER VARYING(20) NOT NULL,
+    unicode     CHARACTER VARYING(13) NOT NULL UNIQUE,
 	excluido	BOOLEAN NOT NULL,
     
     CONSTRAINT id_cons_pk PRIMARY KEY (id_cons),

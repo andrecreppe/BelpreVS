@@ -15,7 +15,6 @@ namespace Belpre
 {
     public partial class frmLogin : Form
     {
-        //Criptografia
         Criptografia cripto = new Criptografia();
 
         //Dados de ROOT
@@ -26,7 +25,8 @@ namespace Belpre
         }
         private string senha_mestre = "123321";
 
-        //Inicialição
+        //------------------------------------------MAIN--------------------------------------------//
+
         public frmLogin()
         {
             InitializeComponent();
@@ -34,8 +34,8 @@ namespace Belpre
             txtAviso.Text = "";
         }
 
+        //----------------------------------TYPING VALIDATION----------------------------------------//
 
-        //Validando se o CapsLock está ligado
         private void txtSenha_Enter(object sender, EventArgs e)
         {
             if (Control.IsKeyLocked(Keys.CapsLock))
@@ -59,8 +59,8 @@ namespace Belpre
             }
         }
 
+        //------------------------------------------LOGIN----------------------------------------//
 
-        //Efetua o login
         private void btnLogar_Click(object sender, EventArgs e)
         {
             try
@@ -159,6 +159,8 @@ namespace Belpre
                     "Belpre", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //----------------------------------GLOBAL FUNCTIONS--------------------------------------------//
 
         private void LimpaCampos()
         {

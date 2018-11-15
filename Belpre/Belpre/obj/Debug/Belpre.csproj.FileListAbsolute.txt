@@ -162,3 +162,4 @@ C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.pdb
 C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.dll
 C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.pdb
 C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\bin\Debug\FluentDateTime.xml
+C:\Users\André Creppe\Downloads\C#\BelpreVS\Belpre\Belpre\obj\Debug\Belpre.frmDadosConsulta.resources

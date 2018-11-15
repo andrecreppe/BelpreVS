@@ -17,26 +17,55 @@ namespace Belpre
 {
     public partial class frmMASTER : Form
     {
-        Criptografia cripto = new Criptografia();
+        private Criptografia cripto = new Criptografia();
+
+        //-----------------------------------------------MAIN------------------------------------------------//
 
         public frmMASTER()
         {
             InitializeComponent();
         }
 
-        //Change the index based on the label clicked
-        private void lblCadastro_Click(object sender, EventArgs e)
+        //---------------------------------------TAB CONTROL-------------------------------------------//
+
+        private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tabAdmin.SelectedIndex = 1;
-        }
-        private void lblConsulta_Click(object sender, EventArgs e)
-        {
-            tabAdmin.SelectedIndex = 2;
+            try
+            {
+                //Se a selecionada é a consulta
+                if (tabAdmin.SelectedTab.Name == "tabConsulta")
+                {
+                    string sql = "SELECT id_med, nome, sobrenome, cpf" +
+                        " FROM medicos " +
+                        "ORDER BY id_med;";
+
+                    DataSet ds = new DataSet();
+                    ds = conexao.SelectDataSet(sql);
+
+                    //Carregar o grid com os dados do DatSet
+                    dgvConsulta.DataSource = ds.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
-        //-----------------------------------------------------------------------------------------------------------//
+        //-----------------------------------------------HOME-----------------------------------------------//
 
-        //Efetua o cadastro no banco
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+        }
+
+        //---------------------------------------CADASTRAR----------------------------------------------------//
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
@@ -156,17 +185,18 @@ namespace Belpre
                 return;
             }
         }
+
         private void ErroPreenchimento()
         {
             MessageBox.Show("Existem campos sem preencher!", "Belpre", 
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        //Limpa os campos de cadastro
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
         }
+
         private void LimpaCampos()
         {
             txtNomeCad.Text = "";
@@ -181,55 +211,8 @@ namespace Belpre
             radMascCad.Checked = false;
         }
 
-        //-----------------------------------------------------------------------------------------------------------//
+        //---------------------------------------CONSULTA MEDICOS-------------------------------------------//
 
-        //Voltar ao form de LOGIN
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            frmLogin login = new frmLogin();
-            this.Hide();
-            login.ShowDialog();
-            this.Close();
-        }
-
-        //-----------------------------------------------------------------------------------------------------------//
-
-        //Entrou na aba de consulta
-        private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //Se a selecionada é a consulta
-                if (tabAdmin.SelectedTab.Name == "tabConsulta")
-                {
-                    string sql = "SELECT id_med, nome, sobrenome, cpf" +
-                        " FROM medicos " +
-                        "ORDER BY id_med;";
-
-                    DataSet ds = new DataSet();
-                    ds = conexao.SelectDataSet(sql);
-
-                    //Carregar o grid com os dados do DatSet
-                    dgvConsulta.DataSource = ds.Tables[0];
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
-        //Recarregar o DGV 
-        private void picReload_Click(object sender, EventArgs e)
-        {
-            dgvConsulta.Refresh();
-            dgvConsulta.DataSource = null;
-
-            tabAdmin_SelectedIndexChanged(sender, new CancelEventArgs());
-        }
-
-        //Selecionou a linha de um cadastro -> Vai pra alteração
         private void dgvConsulta_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -249,9 +232,16 @@ namespace Belpre
             }
         }
 
-        //-----------------------------------------------------------------------------------------------------------//
+        private void picReload_Click(object sender, EventArgs e)
+        {
+            dgvConsulta.Refresh();
+            dgvConsulta.DataSource = null;
 
-        //Carrega um CPF
+            tabAdmin_SelectedIndexChanged(sender, new CancelEventArgs());
+        }
+
+        //--------------------------------------------ALTERAÇÃO MEDICOS----------------------------------------------//
+
         private void mskCPFAlt_Validating(object sender, CancelEventArgs e)
         {
             try
@@ -317,11 +307,11 @@ namespace Belpre
             }
         }
 
-        //Limpa os campos da Alteração
         private void btnLimpaAlt_Click(object sender, EventArgs e)
         {
             LimpaCamposAlt();
         }
+
         private void LimpaCamposAlt()
         {
             txtNomeAlt.Text = "";
@@ -336,7 +326,6 @@ namespace Belpre
             radFemAlt.Checked = false;
         }
 
-        //Altera os dados
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             try

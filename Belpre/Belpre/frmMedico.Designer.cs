@@ -40,6 +40,7 @@
             this.picMedicoa = new System.Windows.Forms.PictureBox();
             this.tabAgenda = new System.Windows.Forms.TabPage();
             this.grpSeg = new System.Windows.Forms.GroupBox();
+            this.dgvSeg = new System.Windows.Forms.DataGridView();
             this.lblTerca = new System.Windows.Forms.Label();
             this.btnHoje = new System.Windows.Forms.Button();
             this.picVoltar = new System.Windows.Forms.PictureBox();
@@ -53,11 +54,20 @@
             this.grpDomingo = new System.Windows.Forms.GroupBox();
             this.dgvDom = new System.Windows.Forms.DataGridView();
             this.grpSabado = new System.Windows.Forms.GroupBox();
+            this.dgvSab = new System.Windows.Forms.DataGridView();
             this.grpSexta = new System.Windows.Forms.GroupBox();
+            this.dgvSex = new System.Windows.Forms.DataGridView();
             this.grpQuinta = new System.Windows.Forms.GroupBox();
+            this.dgvQui = new System.Windows.Forms.DataGridView();
             this.grpQuarta = new System.Windows.Forms.GroupBox();
+            this.dgvQua = new System.Windows.Forms.DataGridView();
             this.grpTerca = new System.Windows.Forms.GroupBox();
+            this.dgvTer = new System.Windows.Forms.DataGridView();
             this.tabConsulta = new System.Windows.Forms.TabPage();
+            this.grpAtalhos = new System.Windows.Forms.GroupBox();
+            this.btnToday = new System.Windows.Forms.Button();
+            this.btnSemanaqvem = new System.Windows.Forms.Button();
+            this.btnAmanha = new System.Windows.Forms.Button();
             this.cmbIDOculto = new System.Windows.Forms.ComboBox();
             this.cmbPacientes = new System.Windows.Forms.ComboBox();
             this.btnLimpaConsulta = new System.Windows.Forms.Button();
@@ -80,12 +90,12 @@
             this.picReload = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
-            this.tabCadastro = new System.Windows.Forms.TabPage();
+            this.tabCadAlt = new System.Windows.Forms.TabPage();
             this.mskNascmCad = new System.Windows.Forms.MaskedTextBox();
             this.mskCellCad = new System.Windows.Forms.MaskedTextBox();
             this.mskCPFCad = new System.Windows.Forms.MaskedTextBox();
             this.btnLimpaCad = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnCadAlt = new System.Windows.Forms.Button();
             this.lblSenhaCad = new System.Windows.Forms.Label();
             this.txtSenhaCad = new System.Windows.Forms.TextBox();
             this.radMascCad = new System.Windows.Forms.RadioButton();
@@ -99,21 +109,39 @@
             this.lblSobrCad = new System.Windows.Forms.Label();
             this.lblNomeCad = new System.Windows.Forms.Label();
             this.picCadastro = new System.Windows.Forms.PictureBox();
-            this.tabDados = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.radConsulta = new System.Windows.Forms.RadioButton();
+            this.radRetorno = new System.Windows.Forms.RadioButton();
+            this.btnExcReat = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tabMedico.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).BeginInit();
             this.tabAgenda.SuspendLayout();
+            this.grpSeg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSeg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).BeginInit();
             this.grpDomingo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDom)).BeginInit();
+            this.grpSabado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSab)).BeginInit();
+            this.grpSexta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSex)).BeginInit();
+            this.grpQuinta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQui)).BeginInit();
+            this.grpQuarta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQua)).BeginInit();
+            this.grpTerca.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTer)).BeginInit();
             this.tabConsulta.SuspendLayout();
+            this.grpAtalhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).BeginInit();
             this.tabPac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
-            this.tabCadastro.SuspendLayout();
+            this.tabCadAlt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCadastro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,8 +151,7 @@
             this.tabMedico.Controls.Add(this.tabAgenda);
             this.tabMedico.Controls.Add(this.tabConsulta);
             this.tabMedico.Controls.Add(this.tabPac);
-            this.tabMedico.Controls.Add(this.tabCadastro);
-            this.tabMedico.Controls.Add(this.tabDados);
+            this.tabMedico.Controls.Add(this.tabCadAlt);
             this.tabMedico.Location = new System.Drawing.Point(13, 12);
             this.tabMedico.Name = "tabMedico";
             this.tabMedico.SelectedIndex = 0;
@@ -249,6 +276,7 @@
             // 
             // grpSeg
             // 
+            this.grpSeg.Controls.Add(this.dgvSeg);
             this.grpSeg.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSeg.Location = new System.Drawing.Point(169, 43);
             this.grpSeg.Name = "grpSeg";
@@ -257,11 +285,26 @@
             this.grpSeg.TabStop = false;
             this.grpSeg.Text = "Segunda-Feira";
             // 
+            // dgvSeg
+            // 
+            this.dgvSeg.AllowUserToAddRows = false;
+            this.dgvSeg.AllowUserToDeleteRows = false;
+            this.dgvSeg.AllowUserToResizeColumns = false;
+            this.dgvSeg.AllowUserToResizeRows = false;
+            this.dgvSeg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSeg.Location = new System.Drawing.Point(6, 22);
+            this.dgvSeg.Name = "dgvSeg";
+            this.dgvSeg.ReadOnly = true;
+            this.dgvSeg.RowHeadersVisible = false;
+            this.dgvSeg.Size = new System.Drawing.Size(102, 404);
+            this.dgvSeg.TabIndex = 1;
+            this.dgvSeg.DoubleClick += new System.EventHandler(this.dgvSeg_DoubleClick);
+            // 
             // lblTerca
             // 
             this.lblTerca.AutoSize = true;
             this.lblTerca.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerca.Location = new System.Drawing.Point(305, 13);
+            this.lblTerca.Location = new System.Drawing.Point(300, 13);
             this.lblTerca.Name = "lblTerca";
             this.lblTerca.Size = new System.Drawing.Size(59, 23);
             this.lblTerca.TabIndex = 8;
@@ -306,7 +349,7 @@
             this.lblDomingo.BackColor = System.Drawing.Color.Transparent;
             this.lblDomingo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDomingo.ForeColor = System.Drawing.Color.Black;
-            this.lblDomingo.Location = new System.Drawing.Point(58, 13);
+            this.lblDomingo.Location = new System.Drawing.Point(53, 13);
             this.lblDomingo.Name = "lblDomingo";
             this.lblDomingo.Size = new System.Drawing.Size(77, 23);
             this.lblDomingo.TabIndex = 13;
@@ -316,7 +359,7 @@
             // 
             this.lblSabado.AutoSize = true;
             this.lblSabado.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSabado.Location = new System.Drawing.Point(785, 13);
+            this.lblSabado.Location = new System.Drawing.Point(780, 13);
             this.lblSabado.Name = "lblSabado";
             this.lblSabado.Size = new System.Drawing.Size(59, 23);
             this.lblSabado.TabIndex = 12;
@@ -326,7 +369,7 @@
             // 
             this.lblSexta.AutoSize = true;
             this.lblSexta.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSexta.Location = new System.Drawing.Point(665, 13);
+            this.lblSexta.Location = new System.Drawing.Point(660, 13);
             this.lblSexta.Name = "lblSexta";
             this.lblSexta.Size = new System.Drawing.Size(59, 23);
             this.lblSexta.TabIndex = 11;
@@ -336,7 +379,7 @@
             // 
             this.lblQuinta.AutoSize = true;
             this.lblQuinta.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuinta.Location = new System.Drawing.Point(546, 13);
+            this.lblQuinta.Location = new System.Drawing.Point(541, 13);
             this.lblQuinta.Name = "lblQuinta";
             this.lblQuinta.Size = new System.Drawing.Size(59, 23);
             this.lblQuinta.TabIndex = 10;
@@ -346,7 +389,7 @@
             // 
             this.lblQuarta.AutoSize = true;
             this.lblQuarta.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuarta.Location = new System.Drawing.Point(425, 13);
+            this.lblQuarta.Location = new System.Drawing.Point(420, 13);
             this.lblQuarta.Name = "lblQuarta";
             this.lblQuarta.Size = new System.Drawing.Size(59, 23);
             this.lblQuarta.TabIndex = 9;
@@ -356,7 +399,7 @@
             // 
             this.lblSegunda.AutoSize = true;
             this.lblSegunda.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSegunda.Location = new System.Drawing.Point(179, 13);
+            this.lblSegunda.Location = new System.Drawing.Point(174, 13);
             this.lblSegunda.Name = "lblSegunda";
             this.lblSegunda.Size = new System.Drawing.Size(59, 23);
             this.lblSegunda.TabIndex = 7;
@@ -375,14 +418,22 @@
             // 
             // dgvDom
             // 
+            this.dgvDom.AllowUserToAddRows = false;
+            this.dgvDom.AllowUserToDeleteRows = false;
+            this.dgvDom.AllowUserToResizeColumns = false;
+            this.dgvDom.AllowUserToResizeRows = false;
             this.dgvDom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDom.Location = new System.Drawing.Point(7, 22);
             this.dgvDom.Name = "dgvDom";
+            this.dgvDom.ReadOnly = true;
+            this.dgvDom.RowHeadersVisible = false;
             this.dgvDom.Size = new System.Drawing.Size(102, 404);
             this.dgvDom.TabIndex = 0;
+            this.dgvDom.DoubleClick += new System.EventHandler(this.dgvDom_DoubleClick);
             // 
             // grpSabado
             // 
+            this.grpSabado.Controls.Add(this.dgvSab);
             this.grpSabado.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSabado.Location = new System.Drawing.Point(774, 43);
             this.grpSabado.Name = "grpSabado";
@@ -391,8 +442,24 @@
             this.grpSabado.TabStop = false;
             this.grpSabado.Text = "Sábado";
             // 
+            // dgvSab
+            // 
+            this.dgvSab.AllowUserToAddRows = false;
+            this.dgvSab.AllowUserToDeleteRows = false;
+            this.dgvSab.AllowUserToResizeColumns = false;
+            this.dgvSab.AllowUserToResizeRows = false;
+            this.dgvSab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSab.Location = new System.Drawing.Point(6, 22);
+            this.dgvSab.Name = "dgvSab";
+            this.dgvSab.ReadOnly = true;
+            this.dgvSab.RowHeadersVisible = false;
+            this.dgvSab.Size = new System.Drawing.Size(102, 404);
+            this.dgvSab.TabIndex = 6;
+            this.dgvSab.DoubleClick += new System.EventHandler(this.dgvSab_DoubleClick);
+            // 
             // grpSexta
             // 
+            this.grpSexta.Controls.Add(this.dgvSex);
             this.grpSexta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSexta.Location = new System.Drawing.Point(653, 43);
             this.grpSexta.Name = "grpSexta";
@@ -401,8 +468,24 @@
             this.grpSexta.TabStop = false;
             this.grpSexta.Text = "Sexta-Feira";
             // 
+            // dgvSex
+            // 
+            this.dgvSex.AllowUserToAddRows = false;
+            this.dgvSex.AllowUserToDeleteRows = false;
+            this.dgvSex.AllowUserToResizeColumns = false;
+            this.dgvSex.AllowUserToResizeRows = false;
+            this.dgvSex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSex.Location = new System.Drawing.Point(7, 22);
+            this.dgvSex.Name = "dgvSex";
+            this.dgvSex.ReadOnly = true;
+            this.dgvSex.RowHeadersVisible = false;
+            this.dgvSex.Size = new System.Drawing.Size(102, 404);
+            this.dgvSex.TabIndex = 5;
+            this.dgvSex.DoubleClick += new System.EventHandler(this.dgvSex_DoubleClick);
+            // 
             // grpQuinta
             // 
+            this.grpQuinta.Controls.Add(this.dgvQui);
             this.grpQuinta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpQuinta.Location = new System.Drawing.Point(532, 43);
             this.grpQuinta.Name = "grpQuinta";
@@ -411,8 +494,24 @@
             this.grpQuinta.TabStop = false;
             this.grpQuinta.Text = "Quinta-Feira";
             // 
+            // dgvQui
+            // 
+            this.dgvQui.AllowUserToAddRows = false;
+            this.dgvQui.AllowUserToDeleteRows = false;
+            this.dgvQui.AllowUserToResizeColumns = false;
+            this.dgvQui.AllowUserToResizeRows = false;
+            this.dgvQui.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQui.Location = new System.Drawing.Point(6, 22);
+            this.dgvQui.Name = "dgvQui";
+            this.dgvQui.ReadOnly = true;
+            this.dgvQui.RowHeadersVisible = false;
+            this.dgvQui.Size = new System.Drawing.Size(102, 404);
+            this.dgvQui.TabIndex = 4;
+            this.dgvQui.DoubleClick += new System.EventHandler(this.dgvQui_DoubleClick);
+            // 
             // grpQuarta
             // 
+            this.grpQuarta.Controls.Add(this.dgvQua);
             this.grpQuarta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpQuarta.Location = new System.Drawing.Point(411, 43);
             this.grpQuarta.Name = "grpQuarta";
@@ -421,8 +520,24 @@
             this.grpQuarta.TabStop = false;
             this.grpQuarta.Text = "Quarta-Feira";
             // 
+            // dgvQua
+            // 
+            this.dgvQua.AllowUserToAddRows = false;
+            this.dgvQua.AllowUserToDeleteRows = false;
+            this.dgvQua.AllowUserToResizeColumns = false;
+            this.dgvQua.AllowUserToResizeRows = false;
+            this.dgvQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQua.Location = new System.Drawing.Point(6, 22);
+            this.dgvQua.Name = "dgvQua";
+            this.dgvQua.ReadOnly = true;
+            this.dgvQua.RowHeadersVisible = false;
+            this.dgvQua.Size = new System.Drawing.Size(102, 404);
+            this.dgvQua.TabIndex = 3;
+            this.dgvQua.DoubleClick += new System.EventHandler(this.dgvQua_DoubleClick);
+            // 
             // grpTerca
             // 
+            this.grpTerca.Controls.Add(this.dgvTer);
             this.grpTerca.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTerca.Location = new System.Drawing.Point(290, 43);
             this.grpTerca.Name = "grpTerca";
@@ -431,8 +546,28 @@
             this.grpTerca.TabStop = false;
             this.grpTerca.Text = "Terça-Feira";
             // 
+            // dgvTer
+            // 
+            this.dgvTer.AllowUserToAddRows = false;
+            this.dgvTer.AllowUserToDeleteRows = false;
+            this.dgvTer.AllowUserToResizeColumns = false;
+            this.dgvTer.AllowUserToResizeRows = false;
+            this.dgvTer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTer.Location = new System.Drawing.Point(7, 22);
+            this.dgvTer.Name = "dgvTer";
+            this.dgvTer.ReadOnly = true;
+            this.dgvTer.RowHeadersVisible = false;
+            this.dgvTer.Size = new System.Drawing.Size(102, 404);
+            this.dgvTer.TabIndex = 2;
+            this.dgvTer.DoubleClick += new System.EventHandler(this.dgvTer_DoubleClick);
+            // 
             // tabConsulta
             // 
+            this.tabConsulta.Controls.Add(this.radRetorno);
+            this.tabConsulta.Controls.Add(this.radConsulta);
+            this.tabConsulta.Controls.Add(this.lblTipo);
+            this.tabConsulta.Controls.Add(this.label1);
+            this.tabConsulta.Controls.Add(this.grpAtalhos);
             this.tabConsulta.Controls.Add(this.cmbIDOculto);
             this.tabConsulta.Controls.Add(this.cmbPacientes);
             this.tabConsulta.Controls.Add(this.btnLimpaConsulta);
@@ -456,6 +591,52 @@
             this.tabConsulta.Text = "Agendar Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
             // 
+            // grpAtalhos
+            // 
+            this.grpAtalhos.Controls.Add(this.btnToday);
+            this.grpAtalhos.Controls.Add(this.btnSemanaqvem);
+            this.grpAtalhos.Controls.Add(this.btnAmanha);
+            this.grpAtalhos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAtalhos.Location = new System.Drawing.Point(403, 70);
+            this.grpAtalhos.Name = "grpAtalhos";
+            this.grpAtalhos.Size = new System.Drawing.Size(125, 136);
+            this.grpAtalhos.TabIndex = 27;
+            this.grpAtalhos.TabStop = false;
+            this.grpAtalhos.Text = "Atalhos para o \'dia\'";
+            // 
+            // btnToday
+            // 
+            this.btnToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToday.Location = new System.Drawing.Point(16, 22);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(96, 28);
+            this.btnToday.TabIndex = 27;
+            this.btnToday.Text = "&Hoje";
+            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
+            // 
+            // btnSemanaqvem
+            // 
+            this.btnSemanaqvem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSemanaqvem.Location = new System.Drawing.Point(16, 88);
+            this.btnSemanaqvem.Name = "btnSemanaqvem";
+            this.btnSemanaqvem.Size = new System.Drawing.Size(96, 42);
+            this.btnSemanaqvem.TabIndex = 26;
+            this.btnSemanaqvem.Text = "&Proxima Semana";
+            this.btnSemanaqvem.UseVisualStyleBackColor = true;
+            this.btnSemanaqvem.Click += new System.EventHandler(this.btnSemanaqvem_Click);
+            // 
+            // btnAmanha
+            // 
+            this.btnAmanha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmanha.Location = new System.Drawing.Point(16, 54);
+            this.btnAmanha.Name = "btnAmanha";
+            this.btnAmanha.Size = new System.Drawing.Size(96, 28);
+            this.btnAmanha.TabIndex = 24;
+            this.btnAmanha.Text = "A&manha";
+            this.btnAmanha.UseVisualStyleBackColor = true;
+            this.btnAmanha.Click += new System.EventHandler(this.btnAmanha_Click);
+            // 
             // cmbIDOculto
             // 
             this.cmbIDOculto.FormattingEnabled = true;
@@ -471,7 +652,7 @@
             this.cmbPacientes.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPacientes.FormattingEnabled = true;
             this.cmbPacientes.IntegralHeight = false;
-            this.cmbPacientes.Location = new System.Drawing.Point(185, 45);
+            this.cmbPacientes.Location = new System.Drawing.Point(185, 46);
             this.cmbPacientes.Name = "cmbPacientes";
             this.cmbPacientes.Size = new System.Drawing.Size(164, 34);
             this.cmbPacientes.TabIndex = 22;
@@ -480,7 +661,8 @@
             // btnLimpaConsulta
             // 
             this.btnLimpaConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpaConsulta.Location = new System.Drawing.Point(280, 375);
+            this.btnLimpaConsulta.ForeColor = System.Drawing.Color.Red;
+            this.btnLimpaConsulta.Location = new System.Drawing.Point(280, 408);
             this.btnLimpaConsulta.Name = "btnLimpaConsulta";
             this.btnLimpaConsulta.Size = new System.Drawing.Size(163, 42);
             this.btnLimpaConsulta.TabIndex = 21;
@@ -491,7 +673,7 @@
             // btnAgendar
             // 
             this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgendar.Location = new System.Drawing.Point(54, 375);
+            this.btnAgendar.Location = new System.Drawing.Point(54, 408);
             this.btnAgendar.Name = "btnAgendar";
             this.btnAgendar.Size = new System.Drawing.Size(163, 42);
             this.btnAgendar.TabIndex = 20;
@@ -502,7 +684,7 @@
             // chkParticular
             // 
             this.chkParticular.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkParticular.Location = new System.Drawing.Point(365, 254);
+            this.chkParticular.Location = new System.Drawing.Point(365, 250);
             this.chkParticular.Name = "chkParticular";
             this.chkParticular.Size = new System.Drawing.Size(123, 53);
             this.chkParticular.TabIndex = 19;
@@ -524,7 +706,7 @@
             "São Lucas",
             "SulAmérica",
             "Unimed"});
-            this.cmbConvenio.Location = new System.Drawing.Point(185, 263);
+            this.cmbConvenio.Location = new System.Drawing.Point(185, 259);
             this.cmbConvenio.Name = "cmbConvenio";
             this.cmbConvenio.Size = new System.Drawing.Size(164, 34);
             this.cmbConvenio.Sorted = true;
@@ -534,7 +716,7 @@
             // 
             this.lblM.AutoSize = true;
             this.lblM.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblM.Location = new System.Drawing.Point(344, 213);
+            this.lblM.Location = new System.Drawing.Point(344, 209);
             this.lblM.Name = "lblM";
             this.lblM.Size = new System.Drawing.Size(49, 25);
             this.lblM.TabIndex = 17;
@@ -544,7 +726,7 @@
             // 
             this.lblH.AutoSize = true;
             this.lblH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblH.Location = new System.Drawing.Point(249, 212);
+            this.lblH.Location = new System.Drawing.Point(249, 208);
             this.lblH.Name = "lblH";
             this.lblH.Size = new System.Drawing.Size(25, 25);
             this.lblH.TabIndex = 16;
@@ -557,7 +739,7 @@
             this.cmbMinutos.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMinutos.FormattingEnabled = true;
             this.cmbMinutos.IntegralHeight = false;
-            this.cmbMinutos.Location = new System.Drawing.Point(280, 204);
+            this.cmbMinutos.Location = new System.Drawing.Point(280, 200);
             this.cmbMinutos.Name = "cmbMinutos";
             this.cmbMinutos.Size = new System.Drawing.Size(61, 34);
             this.cmbMinutos.TabIndex = 15;
@@ -569,7 +751,7 @@
             this.cmbHora.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHora.FormattingEnabled = true;
             this.cmbHora.IntegralHeight = false;
-            this.cmbHora.Location = new System.Drawing.Point(185, 204);
+            this.cmbHora.Location = new System.Drawing.Point(185, 200);
             this.cmbHora.Name = "cmbHora";
             this.cmbHora.Size = new System.Drawing.Size(61, 34);
             this.cmbHora.TabIndex = 14;
@@ -577,7 +759,7 @@
             // mskDiaConsulta
             // 
             this.mskDiaConsulta.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskDiaConsulta.Location = new System.Drawing.Point(185, 144);
+            this.mskDiaConsulta.Location = new System.Drawing.Point(185, 140);
             this.mskDiaConsulta.Mask = "00/00/0000";
             this.mskDiaConsulta.Name = "mskDiaConsulta";
             this.mskDiaConsulta.Size = new System.Drawing.Size(131, 37);
@@ -588,7 +770,7 @@
             // 
             this.lblConvenio.AutoSize = true;
             this.lblConvenio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConvenio.Location = new System.Drawing.Point(40, 266);
+            this.lblConvenio.Location = new System.Drawing.Point(40, 263);
             this.lblConvenio.Name = "lblConvenio";
             this.lblConvenio.Size = new System.Drawing.Size(118, 25);
             this.lblConvenio.TabIndex = 5;
@@ -598,7 +780,7 @@
             // 
             this.lblHorario.AutoSize = true;
             this.lblHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHorario.Location = new System.Drawing.Point(62, 207);
+            this.lblHorario.Location = new System.Drawing.Point(62, 203);
             this.lblHorario.Name = "lblHorario";
             this.lblHorario.Size = new System.Drawing.Size(96, 25);
             this.lblHorario.TabIndex = 4;
@@ -608,7 +790,7 @@
             // 
             this.lblDia.AutoSize = true;
             this.lblDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDia.Location = new System.Drawing.Point(104, 150);
+            this.lblDia.Location = new System.Drawing.Point(104, 146);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(54, 25);
             this.lblDia.TabIndex = 3;
@@ -627,7 +809,7 @@
             // picConsulta
             // 
             this.picConsulta.Image = ((System.Drawing.Image)(resources.GetObject("picConsulta.Image")));
-            this.picConsulta.Location = new System.Drawing.Point(545, 45);
+            this.picConsulta.Location = new System.Drawing.Point(562, 48);
             this.picConsulta.Name = "picConsulta";
             this.picConsulta.Size = new System.Drawing.Size(330, 372);
             this.picConsulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -652,7 +834,7 @@
             // 
             this.lblRetorno.AutoSize = true;
             this.lblRetorno.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRetorno.Location = new System.Drawing.Point(679, 215);
+            this.lblRetorno.Location = new System.Drawing.Point(736, 408);
             this.lblRetorno.Name = "lblRetorno";
             this.lblRetorno.Size = new System.Drawing.Size(136, 15);
             this.lblRetorno.TabIndex = 12;
@@ -662,7 +844,7 @@
             // 
             this.lblAtivos.AutoSize = true;
             this.lblAtivos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAtivos.Location = new System.Drawing.Point(697, 34);
+            this.lblAtivos.Location = new System.Drawing.Point(575, 408);
             this.lblAtivos.Name = "lblAtivos";
             this.lblAtivos.Size = new System.Drawing.Size(100, 15);
             this.lblAtivos.TabIndex = 11;
@@ -694,40 +876,45 @@
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.AllowUserToOrderColumns = true;
+            this.dgvConsulta.AllowUserToResizeColumns = false;
+            this.dgvConsulta.AllowUserToResizeRows = false;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Location = new System.Drawing.Point(3, 3);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.Size = new System.Drawing.Size(543, 443);
             this.dgvConsulta.TabIndex = 8;
+            this.dgvConsulta.DoubleClick += new System.EventHandler(this.dgvConsulta_DoubleClick);
             // 
-            // tabCadastro
+            // tabCadAlt
             // 
-            this.tabCadastro.Controls.Add(this.mskNascmCad);
-            this.tabCadastro.Controls.Add(this.mskCellCad);
-            this.tabCadastro.Controls.Add(this.mskCPFCad);
-            this.tabCadastro.Controls.Add(this.btnLimpaCad);
-            this.tabCadastro.Controls.Add(this.btnCadastrar);
-            this.tabCadastro.Controls.Add(this.lblSenhaCad);
-            this.tabCadastro.Controls.Add(this.txtSenhaCad);
-            this.tabCadastro.Controls.Add(this.radMascCad);
-            this.tabCadastro.Controls.Add(this.radFemCad);
-            this.tabCadastro.Controls.Add(this.txtSobreCad);
-            this.tabCadastro.Controls.Add(this.txtNomeCad);
-            this.tabCadastro.Controls.Add(this.lblCellCad);
-            this.tabCadastro.Controls.Add(this.lblNascmCad);
-            this.tabCadastro.Controls.Add(this.lblSexoCad);
-            this.tabCadastro.Controls.Add(this.lblCPFCad);
-            this.tabCadastro.Controls.Add(this.lblSobrCad);
-            this.tabCadastro.Controls.Add(this.lblNomeCad);
-            this.tabCadastro.Controls.Add(this.picCadastro);
-            this.tabCadastro.Location = new System.Drawing.Point(4, 22);
-            this.tabCadastro.Name = "tabCadastro";
-            this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastro.Size = new System.Drawing.Size(895, 481);
-            this.tabCadastro.TabIndex = 1;
-            this.tabCadastro.Text = "Cadastro Paciente";
-            this.tabCadastro.UseVisualStyleBackColor = true;
+            this.tabCadAlt.Controls.Add(this.lblTitle);
+            this.tabCadAlt.Controls.Add(this.btnExcReat);
+            this.tabCadAlt.Controls.Add(this.mskNascmCad);
+            this.tabCadAlt.Controls.Add(this.mskCellCad);
+            this.tabCadAlt.Controls.Add(this.mskCPFCad);
+            this.tabCadAlt.Controls.Add(this.btnLimpaCad);
+            this.tabCadAlt.Controls.Add(this.btnCadAlt);
+            this.tabCadAlt.Controls.Add(this.lblSenhaCad);
+            this.tabCadAlt.Controls.Add(this.txtSenhaCad);
+            this.tabCadAlt.Controls.Add(this.radMascCad);
+            this.tabCadAlt.Controls.Add(this.radFemCad);
+            this.tabCadAlt.Controls.Add(this.txtSobreCad);
+            this.tabCadAlt.Controls.Add(this.txtNomeCad);
+            this.tabCadAlt.Controls.Add(this.lblCellCad);
+            this.tabCadAlt.Controls.Add(this.lblNascmCad);
+            this.tabCadAlt.Controls.Add(this.lblSexoCad);
+            this.tabCadAlt.Controls.Add(this.lblCPFCad);
+            this.tabCadAlt.Controls.Add(this.lblSobrCad);
+            this.tabCadAlt.Controls.Add(this.lblNomeCad);
+            this.tabCadAlt.Controls.Add(this.picCadastro);
+            this.tabCadAlt.Location = new System.Drawing.Point(4, 22);
+            this.tabCadAlt.Name = "tabCadAlt";
+            this.tabCadAlt.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadAlt.Size = new System.Drawing.Size(895, 481);
+            this.tabCadAlt.TabIndex = 1;
+            this.tabCadAlt.Text = "Cadastro/Alteração Paciente";
+            this.tabCadAlt.UseVisualStyleBackColor = true;
             // 
             // mskNascmCad
             // 
@@ -761,6 +948,7 @@
             // btnLimpaCad
             // 
             this.btnLimpaCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpaCad.ForeColor = System.Drawing.Color.Red;
             this.btnLimpaCad.Location = new System.Drawing.Point(260, 414);
             this.btnLimpaCad.Name = "btnLimpaCad";
             this.btnLimpaCad.Size = new System.Drawing.Size(163, 42);
@@ -769,16 +957,16 @@
             this.btnLimpaCad.UseVisualStyleBackColor = true;
             this.btnLimpaCad.Click += new System.EventHandler(this.btnLimpaCad_Click);
             // 
-            // btnCadastrar
+            // btnCadAlt
             // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(24, 414);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(163, 42);
-            this.btnCadastrar.TabIndex = 15;
-            this.btnCadastrar.Text = "&Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnCadAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadAlt.Location = new System.Drawing.Point(24, 414);
+            this.btnCadAlt.Name = "btnCadAlt";
+            this.btnCadAlt.Size = new System.Drawing.Size(163, 42);
+            this.btnCadAlt.TabIndex = 15;
+            this.btnCadAlt.Text = "&Cadastrar";
+            this.btnCadAlt.UseVisualStyleBackColor = true;
+            this.btnCadAlt.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // lblSenhaCad
             // 
@@ -893,7 +1081,7 @@
             // 
             this.lblNomeCad.AutoSize = true;
             this.lblNomeCad.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCad.Location = new System.Drawing.Point(69, 19);
+            this.lblNomeCad.Location = new System.Drawing.Point(69, 20);
             this.lblNomeCad.Name = "lblNomeCad";
             this.lblNomeCad.Size = new System.Drawing.Size(86, 29);
             this.lblNomeCad.TabIndex = 1;
@@ -902,21 +1090,76 @@
             // picCadastro
             // 
             this.picCadastro.Image = ((System.Drawing.Image)(resources.GetObject("picCadastro.Image")));
-            this.picCadastro.Location = new System.Drawing.Point(524, 58);
+            this.picCadastro.Location = new System.Drawing.Point(531, 47);
             this.picCadastro.Name = "picCadastro";
             this.picCadastro.Size = new System.Drawing.Size(330, 334);
             this.picCadastro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCadastro.TabIndex = 0;
             this.picCadastro.TabStop = false;
             // 
-            // tabDados
+            // label1
             // 
-            this.tabDados.Location = new System.Drawing.Point(4, 22);
-            this.tabDados.Name = "tabDados";
-            this.tabDados.Size = new System.Drawing.Size(895, 481);
-            this.tabDados.TabIndex = 5;
-            this.tabDados.Text = "Dados Paciente";
-            this.tabDados.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(546, 446);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "label1";
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(93, 326);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(65, 25);
+            this.lblTipo.TabIndex = 29;
+            this.lblTipo.Text = "Tipo:";
+            // 
+            // radConsulta
+            // 
+            this.radConsulta.AutoSize = true;
+            this.radConsulta.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radConsulta.Location = new System.Drawing.Point(179, 326);
+            this.radConsulta.Name = "radConsulta";
+            this.radConsulta.Size = new System.Drawing.Size(102, 28);
+            this.radConsulta.TabIndex = 30;
+            this.radConsulta.TabStop = true;
+            this.radConsulta.Text = "&Consulta";
+            this.radConsulta.UseVisualStyleBackColor = true;
+            // 
+            // radRetorno
+            // 
+            this.radRetorno.AutoSize = true;
+            this.radRetorno.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radRetorno.Location = new System.Drawing.Point(292, 326);
+            this.radRetorno.Name = "radRetorno";
+            this.radRetorno.Size = new System.Drawing.Size(96, 28);
+            this.radRetorno.TabIndex = 31;
+            this.radRetorno.TabStop = true;
+            this.radRetorno.Text = "&Retorno";
+            this.radRetorno.UseVisualStyleBackColor = true;
+            // 
+            // btnExcReat
+            // 
+            this.btnExcReat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcReat.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnExcReat.Location = new System.Drawing.Point(611, 414);
+            this.btnExcReat.Name = "btnExcReat";
+            this.btnExcReat.Size = new System.Drawing.Size(163, 42);
+            this.btnExcReat.TabIndex = 17;
+            this.btnExcReat.Text = "&Excluir";
+            this.btnExcReat.UseVisualStyleBackColor = true;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(639, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(118, 29);
+            this.lblTitle.TabIndex = 18;
+            this.lblTitle.Text = "*Cadasto*";
             // 
             // frmMedico
             // 
@@ -936,19 +1179,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).EndInit();
             this.tabAgenda.ResumeLayout(false);
             this.tabAgenda.PerformLayout();
+            this.grpSeg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSeg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVoltar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAvancar)).EndInit();
             this.grpDomingo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDom)).EndInit();
+            this.grpSabado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSab)).EndInit();
+            this.grpSexta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSex)).EndInit();
+            this.grpQuinta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQui)).EndInit();
+            this.grpQuarta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQua)).EndInit();
+            this.grpTerca.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTer)).EndInit();
             this.tabConsulta.ResumeLayout(false);
             this.tabConsulta.PerformLayout();
+            this.grpAtalhos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picConsulta)).EndInit();
             this.tabPac.ResumeLayout(false);
             this.tabPac.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
-            this.tabCadastro.ResumeLayout(false);
-            this.tabCadastro.PerformLayout();
+            this.tabCadAlt.ResumeLayout(false);
+            this.tabCadAlt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCadastro)).EndInit();
             this.ResumeLayout(false);
 
@@ -958,7 +1214,7 @@
 
         private System.Windows.Forms.TabControl tabMedico;
         private System.Windows.Forms.TabPage tabAgenda;
-        private System.Windows.Forms.TabPage tabCadastro;
+        private System.Windows.Forms.TabPage tabCadAlt;
         private System.Windows.Forms.TabPage tabHome;
         private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.TabPage tabPac;
@@ -1003,8 +1259,7 @@
         private System.Windows.Forms.Label lblCPFCad;
         private System.Windows.Forms.Label lblSobrCad;
         private System.Windows.Forms.Label lblNomeCad;
-        private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.TabPage tabDados;
+        private System.Windows.Forms.Button btnCadAlt;
         private System.Windows.Forms.Button btnLimpaCad;
         private System.Windows.Forms.MaskedTextBox mskNascmCad;
         private System.Windows.Forms.MaskedTextBox mskCellCad;
@@ -1027,5 +1282,21 @@
         private System.Windows.Forms.Button btnLimpaConsulta;
         private System.Windows.Forms.Button btnAgendar;
         private System.Windows.Forms.ComboBox cmbIDOculto;
+        private System.Windows.Forms.DataGridView dgvSeg;
+        private System.Windows.Forms.DataGridView dgvSab;
+        private System.Windows.Forms.DataGridView dgvSex;
+        private System.Windows.Forms.DataGridView dgvQui;
+        private System.Windows.Forms.DataGridView dgvQua;
+        private System.Windows.Forms.DataGridView dgvTer;
+        private System.Windows.Forms.GroupBox grpAtalhos;
+        private System.Windows.Forms.Button btnSemanaqvem;
+        private System.Windows.Forms.Button btnAmanha;
+        private System.Windows.Forms.Button btnToday;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radRetorno;
+        private System.Windows.Forms.RadioButton radConsulta;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnExcReat;
     }
 }

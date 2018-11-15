@@ -21,9 +21,11 @@ namespace Belpre
 
         private int id_med;
         private int index_agenda = 0;
-        private int hora_min = 7, hora_max = 18;
+        private int hora_min = 7, hora_max = 18, temp_cons = 15;
 
-        Criptografia cripto = new Criptografia();
+        private bool isCadastro = true;
+
+        private Criptografia cripto = new Criptografia();
 
         //--------------------------------------MAIN-----------------------------------//
 
@@ -45,11 +47,14 @@ namespace Belpre
             //Data de hoje
             lblHoje.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
-            //Combo escondido
+            //Consultas para hoje
+            ConsultasHoje();
+
+            //Setup de elementos
             cmbIDOculto.Hide();
 
-            //Consultas para hoje
-                //string sql = "";
+            //Is Cadastro
+            LimpaCamposCadastro();
         }
 
         //-----------------------------------TAB CONTROL-----------------------------------------//
@@ -65,6 +70,10 @@ namespace Belpre
             }
             else if (tabMedico.SelectedIndex == 2) //Agendar
             {
+                //Limpar
+                cmbHora.Items.Clear();
+                cmbMinutos.Items.Clear();
+
                 //Preencher os combos de datas
                 for (int i = hora_min; i < hora_max; i++)
                 {
@@ -75,10 +84,10 @@ namespace Belpre
 
                     cmbHora.Items.Add(horario);
                 }
-                for (int i = 0; i <= 45; i += 15)
+                for (int i = 0; i < 60; i += temp_cons)
                 {
                     if (i == 0)
-                        horario = "0" + i.ToString();
+                        horario = "00";
                     else
                         horario = i.ToString();
 
@@ -147,14 +156,20 @@ namespace Belpre
             add = -dia + (7*mult);
 
             //Prepare
-            d1 = DateTime.Now.AddDays(add).ToString("dd/MM/yy");
-                sql1 = "SELECT hora_cons, id_pac FROM consultas ORDER BY data_cons";
-            d2 = DateTime.Now.AddDays(1 + add).ToString("dd/MM/yy");
-            d3 = DateTime.Now.AddDays(2 + add).ToString("dd/MM/yy");
-            d4 = DateTime.Now.AddDays(3 + add).ToString("dd/MM/yy");
-            d5 = DateTime.Now.AddDays(4 + add).ToString("dd/MM/yy");
-            d6 = DateTime.Now.AddDays(5 + add).ToString("dd/MM/yy");
-            d7 = DateTime.Now.AddDays(6 + add).ToString("dd/MM/yy");
+            d1 = DateTime.Now.AddDays(add).ToString("dd-MM-yyyy");
+                sql1 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d1 + "' ORDER BY hora_cons";
+            d2 = DateTime.Now.AddDays(1 + add).ToString("dd-MM-yyyy");
+                sql2 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d2 + "' ORDER BY hora_cons";
+            d3 = DateTime.Now.AddDays(2 + add).ToString("dd-MM-yyyy");
+                sql3 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d3 + "' ORDER BY hora_cons";
+            d4 = DateTime.Now.AddDays(3 + add).ToString("dd-MM-yyyy");
+                sql4 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d4 + "' ORDER BY hora_cons";
+            d5 = DateTime.Now.AddDays(4 + add).ToString("dd-MM-yyyy");
+                sql5 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d5 + "' ORDER BY hora_cons";
+            d6 = DateTime.Now.AddDays(5 + add).ToString("dd-MM-yyyy");
+                sql6 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d6 + "' ORDER BY hora_cons";
+            d7 = DateTime.Now.AddDays(6 + add).ToString("dd-MM-yyyy");
+                sql7 = "SELECT hora_cons AS Consultas FROM consultas WHERE data_cons='" + d7 + "' ORDER BY hora_cons";
 
             //Label set
             lblDomingo.Text = d1;
@@ -200,15 +215,96 @@ namespace Belpre
                     lblSabado.ForeColor = Color.Black;
             }
 
+            //Clear datagrid
+            dgvDom.DataSource = null;
+            dgvSeg.DataSource = null;
+            dgvTer.DataSource = null;
+            dgvQua.DataSource = null;
+            dgvQui.DataSource = null;
+            dgvSex.DataSource = null;
+            dgvSab.DataSource = null;
+
             //Get events
             DataSet ds = new DataSet();
+
             ds = conexao.SelectDataSet(sql1);
-            dgvDom.DataSource = ds.Tables[0];
+                dgvDom.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql2);
+                dgvSeg.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql3);
+                dgvTer.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql4);
+                dgvQua.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql5);
+                dgvQui.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql6);
+                dgvSex.DataSource = ds.Tables[0];
+            ds = conexao.SelectDataSet(sql7);
+                dgvSab.DataSource = ds.Tables[0];
         }
 
-        //cada DGV tem um request data baseado na data que colocamos no label em cima
-        //fazer uma funcao geral que retorna pra cada item
-        //abrir num novo form? (estilo pop-up)
+        private void dgvDom_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvDom.Rows[dgvDom.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblDomingo.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvSeg_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvSeg.Rows[dgvSeg.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblSegunda.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvTer_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvTer.Rows[dgvTer.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblTerca.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvQua_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvQua.Rows[dgvQua.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblQuarta.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvQui_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvQui.Rows[dgvQui.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblQuinta.Text;
+                
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvSex_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvSex.Rows[dgvSex.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblSexta.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
+
+        private void dgvSab_DoubleClick(object sender, EventArgs e)
+        {
+            string hr = dgvSab.Rows[dgvSab.CurrentRow.Index].Cells[0].Value.ToString();
+            string dt = lblSabado.Text;
+
+            frmDadosConsulta frm = new frmDadosConsulta(hr, dt);
+            frm.Show();
+        }
 
         //--------------------------------AGENDAR CONSULTA-------------------------------------//
 
@@ -231,76 +327,111 @@ namespace Belpre
         private void btnAgendar_Click(object sender, EventArgs e)
         {
             List<object> param = new List<object>();
-            string aux, sql;
+            string aux, sql, unicode = "";
 
-            //ID Médico
-            param.Add(id_med);
+            try
+            {
+                //ID Médico
+                param.Add(id_med);
 
-            //ID paciente
-            if (cmbPacientes.SelectedIndex == -1)
-            {
-                ErroPreenchimento();
-                return;
-            }
-            else
-                param.Add(Convert.ToInt64(cmbIDOculto.SelectedItem));
-
-            //Data da consulta
-            if (String.IsNullOrWhiteSpace(mskDiaConsulta.Text))
-            {
-                ErroPreenchimento();
-                return;
-            }
-            else
-            {
-                try
+                //ID paciente
+                if (cmbPacientes.SelectedIndex == -1)
                 {
-                    CultureInfo culture = new CultureInfo("pt-BR");
-                    DateTime data_com_hora = Convert.ToDateTime(mskDiaConsulta.Text, culture);
-
-                    param.Add(data_com_hora.Date);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErroPreenchimento();
                     return;
                 }
-            }
-
-            //Hora da consulta
-            if (cmbHora.SelectedIndex == -1 || cmbMinutos.SelectedIndex == -1)
-            {
-                ErroPreenchimento();
-                return;
-            }
-            else
-            {
-                aux = cmbHora.SelectedItem.ToString() + ":" + cmbMinutos.SelectedItem.ToString();
-                param.Add(aux);
-            }
-
-            //Tipo da Consulta
-            if (cmbConvenio.SelectedIndex == -1 && !chkParticular.Checked)
-            {
-                ErroPreenchimento();
-                return;
-            }
-            else
-            {
-                if (chkParticular.Checked)
-                    param.Add("Particular");
                 else
-                    param.Add(cmbConvenio.SelectedItem);
+                    param.Add(Convert.ToInt64(cmbIDOculto.SelectedItem));
+
+                //Data da consulta
+                if (String.IsNullOrWhiteSpace(mskDiaConsulta.Text))
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        CultureInfo culture = new CultureInfo("pt-BR");
+                        DateTime data_com_hora = Convert.ToDateTime(mskDiaConsulta.Text, culture);
+
+                        param.Add(data_com_hora.Date);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                //Hora da consulta
+                if (cmbHora.SelectedIndex == -1 || cmbMinutos.SelectedIndex == -1)
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                else
+                {
+                    aux = cmbHora.SelectedItem.ToString() + ":" + cmbMinutos.SelectedItem.ToString() + "h";
+                    param.Add(aux);
+
+                    unicode = cmbHora.SelectedItem.ToString() + cmbMinutos.SelectedItem.ToString();
+                }
+
+                //Tipo de consulta
+                if(!radConsulta.Checked && !radRetorno.Checked)
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                else
+                {
+                    if (radConsulta.Checked)
+                        param.Add("Consulta");
+                    else
+                        param.Add("Retorno");
+                }
+
+                //Convenio
+                if (cmbConvenio.SelectedIndex == -1 && !chkParticular.Checked)
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                else
+                {
+                    if (chkParticular.Checked)
+                        param.Add("Particular");
+                    else
+                        param.Add(cmbConvenio.SelectedItem);
+                }
+
+                //Unicode
+                mskDiaConsulta.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    unicode += mskDiaConsulta.Text;
+                    param.Add(unicode);
+                mskDiaConsulta.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                label1.Text = unicode;
+
+
+                sql = "INSERT INTO consultas " +
+                    "VALUES(DEFAULT, @1, @2, @3, @4, @5, @6, @7, 'FALSE');";
+
+                conexao.Run(sql, param);
+
+                MessageBox.Show("Consulta marcada com sucesso!", "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro!" + "\nMais informações: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            sql = "INSERT INTO consultas " +
-                "VALUES(DEFAULT, @1, @2, @3, @4, @5, @6, 'FALSE');";
-
-            conexao.Run(sql, param);
-
-            MessageBox.Show("Consulta marcada com sucesso!", "Belpre", 
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbPacientes.Focus();
+            }
 
             LimpaCamposConsulta();
         }
@@ -319,7 +450,25 @@ namespace Belpre
 
             chkParticular.Checked = false;
 
+            radConsulta.Checked = false;
+            radRetorno.Checked = false;
+
             mskDiaConsulta.Text = "";
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            mskDiaConsulta.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void btnAmanha_Click(object sender, EventArgs e)
+        {
+            mskDiaConsulta.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+        }
+
+        private void btnSemanaqvem_Click(object sender, EventArgs e)
+        {
+            mskDiaConsulta.Text = DateTime.Now.AddDays(7).ToString("dd/MM/yyyy");
         }
 
         //------------------------------------PACIENTES----------------------------------------//
@@ -363,13 +512,96 @@ namespace Belpre
             {
                 MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
         }
 
-        //----------------------------------CADASTRO PACIENTE----------------------------------------//
+        private void dgvConsulta_DoubleClick(object sender, EventArgs e)
+        {
+            string sql;
+
+            try
+            {
+                Int64 cpf = Convert.ToInt64(dgvConsulta.Rows[dgvConsulta.CurrentRow.Index].Cells[2].Value.ToString());
+
+                sql = "SELECT * FROM pacientes WHERE cpf='" + cpf + "'";
+
+                NpgsqlDataReader dr = conexao.Select(sql);
+
+                if (dr.Read())
+                {
+                    txtNomeCad.Text = dr["nome"].ToString();
+                    txtSobreCad.Text = dr["sobrenome"].ToString();
+                    mskCPFCad.Text = cpf.ToString();
+                    if (dr["sexo"].ToString() == "M")
+                        radMascCad.Checked = true;
+                    else
+                        radFemCad.Checked = true;
+                    mskNascmCad.Text = dr["data_nascm"].ToString();
+                    mskCellCad.Text = dr["celular"].ToString();
+                    txtSenhaCad.Text = dr["senha"].ToString();
+
+                    tabMedico.SelectedIndex = 4;
+
+                    btnExcReat.Show();
+                    lblTitle.Text = "*Alteração*";
+                    btnCadAlt.Text = "&Alterar";
+                    isCadastro = false;
+
+                    dr.Close();
+                }
+                else
+                {
+                    dr.Close();
+
+                    throw new Exception();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //----------------------------------CADASTRO/ALTERAÇÃO PACIENTE----------------------------------------//
 
         private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            if (isCadastro)
+                EfetuarCadastro();
+            else
+            {
+                EfetuarAlteracao();
+
+                LimpaCamposCadastro();
+            }
+        }
+
+        private void btnLimpaCad_Click(object sender, EventArgs e)
+        {
+            LimpaCamposCadastro();
+        }
+
+        private void LimpaCamposCadastro()
+        {
+            txtNomeCad.Text = "";
+            txtSobreCad.Text = "";
+            txtSenhaCad.Text = "";
+
+            mskCellCad.Text = "";
+            mskCPFCad.Text = "";
+            mskNascmCad.Text = "";
+
+            radFemCad.Checked = false;
+            radMascCad.Checked = false;
+
+            btnExcReat.Hide();
+            lblTitle.Text = "*Cadastro*";
+            btnCadAlt.Text = "&Cadastrar";
+            isCadastro = true;
+        }
+
+        private void EfetuarCadastro()
         {
             try
             {
@@ -399,6 +631,7 @@ namespace Belpre
                     frmLogin login = new frmLogin();
 
                     mskCPFCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
 
                     if (mskCPFCad.Text == login.getCPF_Mestre())
                     {
@@ -489,23 +722,11 @@ namespace Belpre
             }
         }
 
-        private void btnLimpaCad_Click(object sender, EventArgs e)
+        private void EfetuarAlteracao()
         {
-            LimpaCamposCadastro();
-        }
+            //aaaa
 
-        private void LimpaCamposCadastro()
-        {
-            txtNomeCad.Text = "";
-            txtSobreCad.Text = "";
-            txtSenhaCad.Text = "";
-
-            mskCellCad.Text = "";
-            mskCPFCad.Text = "";
-            mskNascmCad.Text = "";
-
-            radFemCad.Checked = false;
-            radMascCad.Checked = false;
+            //nao esquecer que senha = criptografada
         }
 
         //--------------------------------GLOBAL FUNCTIONS----------------------------------------//
@@ -514,6 +735,24 @@ namespace Belpre
         {
             MessageBox.Show("Existem campos sem preencher!", "Belpre",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void ConsultasHoje()
+        {
+            string hoje, sql;
+
+            hoje = DateTime.Now.ToString("dd-MM-yyyy");
+
+            sql = "SELECT COUNT(id_cons) FROM consultas WHERE data_cons='" + hoje + "'";
+
+            NpgsqlDataReader dr = conexao.Select(sql);
+
+            if (dr.Read())
+                lblConsultas.Text = dr["count"].ToString() + " Consultas!";
+            else
+                lblConsultas.Text = "0 Consultas!";
+
+            dr.Close();
         }
 
         //--------------------------------------------------------------------------------------//
