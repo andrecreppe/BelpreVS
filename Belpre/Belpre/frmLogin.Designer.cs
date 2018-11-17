@@ -144,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 427);
+            this.ClientSize = new System.Drawing.Size(494, 431);
             this.Controls.Add(this.txtAviso);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.txtSenha);

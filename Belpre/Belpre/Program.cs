@@ -25,7 +25,7 @@ namespace Belpre
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 //          Application.Run(new frmLogin());
-                Application.Run(new frmMedico("Debugger", "m", 1));
+                Application.Run(new frmLogin());
         }
     }
 }

@@ -63,7 +63,11 @@ namespace Belpre
         {
             string horario;
 
-            if (tabMedico.SelectedIndex == 1) //Agenda
+            if(tabMedico.SelectedIndex == 0)
+            {
+                ConsultasHoje();
+            }
+            else if (tabMedico.SelectedIndex == 1) //Agenda
             {
                 index_agenda = 0;
                 UpdateDateAgenda(index_agenda);
@@ -99,6 +103,8 @@ namespace Belpre
             else if (tabMedico.SelectedIndex == 3) //Pacientes
             {
                 LoadPacientes(2);
+
+                LoadStatistics();
             }
         }
 
@@ -414,9 +420,6 @@ namespace Belpre
                     param.Add(unicode);
                 mskDiaConsulta.TextMaskFormat = MaskFormat.IncludeLiterals;
 
-                label1.Text = unicode;
-
-
                 sql = "INSERT INTO consultas " +
                     "VALUES(DEFAULT, @1, @2, @3, @4, @5, @6, @7, 'FALSE');";
 
@@ -475,7 +478,8 @@ namespace Belpre
 
         private void LoadPacientes(int op)
         {
-            string sql;
+            string sql = "";
+            bool exec = true;
 
             try
             {
@@ -484,29 +488,93 @@ namespace Belpre
                     " FROM pacientes " +
                     "ORDER BY nome;";
                 else
-                    sql = "SELECT nome, sobrenome, cpf, celular, data_nascm " +
-                    " FROM pacientes " +
-                    "ORDER BY nome;";
-
-                DataSet ds = new DataSet();
-                ds = conexao.SelectDataSet(sql);
-
-                if (op == 1)//Combo consulta
                 {
-                    cmbPacientes.Items.Clear();
-                    cmbIDOculto.Items.Clear();
+                    if (chkExcluidos.Checked && chkNaoExcluidos.Checked)
+                        sql = "SELECT nome, sobrenome, cpf, celular, data_nascm " +
+                        " FROM pacientes " +
+                        "ORDER BY nome;";
+                    else if (chkExcluidos.Checked && !chkNaoExcluidos.Checked)
+                        sql = "SELECT nome, sobrenome, cpf, celular, data_nascm " +
+                        " FROM pacientes " +
+                        " WHERE excluido='TRUE'" +
+                        "ORDER BY nome;";
+                    else if (!chkExcluidos.Checked && chkNaoExcluidos.Checked)
+                        sql = "SELECT nome, sobrenome, cpf, celular, data_nascm " +
+                        " FROM pacientes " +
+                        " WHERE excluido='FALSE'" +
+                        "ORDER BY nome;";
+                    else if(!chkExcluidos.Checked && !chkNaoExcluidos.Checked)
+                        sql = "SELECT nome, sobrenome, cpf, celular, data_nascm FROM pacientes " +
+                            "WHERE id_pac=-1";
+                }
 
-                    foreach (DataTable table in ds.Tables)
+                if(exec)
+                {
+                    DataSet ds = new DataSet();
+                    ds = conexao.SelectDataSet(sql);
+
+                    if (op == 1)//Combo consulta
                     {
-                        foreach (DataRow dr in table.Rows)
+                        cmbPacientes.Items.Clear();
+                        cmbIDOculto.Items.Clear();
+
+                        foreach (DataTable table in ds.Tables)
                         {
-                            cmbPacientes.Items.Add(dr["nome"].ToString());
-                            cmbIDOculto.Items.Add(dr["id_pac"].ToString());
+                            foreach (DataRow dr in table.Rows)
+                            {
+                                cmbPacientes.Items.Add(dr["nome"].ToString());
+                                cmbIDOculto.Items.Add(dr["id_pac"].ToString());
+                            }
                         }
                     }
+                    else if(op == 2) //Carregar o grid pacientes
+                        dgvConsulta.DataSource = ds.Tables[0];
                 }
-                else //Carregar o grid pacientes
-                    dgvConsulta.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if(op == 2)
+                LoadStatistics();
+        }
+
+        private void chkExcluidos_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadPacientes(2);
+        }
+
+        private void LoadStatistics()
+        {
+            string sql;
+
+            try
+            {
+                sql = "SELECT COUNT(id_pac) FROM pacientes WHERE excluido='FALSE';";
+                NpgsqlDataReader dr = conexao.Select(sql);
+                if(dr.Read())
+                    lblQtdAtivos.Text = dr["count"].ToString();
+                dr.Close();
+
+                sql = "SELECT COUNT(id_pac) FROM pacientes WHERE excluido='TRUE';";
+                dr = conexao.Select(sql);
+                if (dr.Read())
+                    lblQtdExcluidos.Text = dr["count"].ToString();
+                dr.Close();
+
+                sql = "SELECT COUNT(id_cons) FROM consultas WHERE tipo='Retorno';";
+                dr = conexao.Select(sql);
+                if (dr.Read())
+                    lblQtdRetorno.Text = dr["count"].ToString();
+                dr.Close();
+
+                sql = "SELECT COUNT(id_cons) FROM consultas WHERE tipo='Consulta';";
+                dr = conexao.Select(sql);
+                if (dr.Read())
+                    lblQtdConsu.Text = dr["count"].ToString();
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -539,6 +607,11 @@ namespace Belpre
                     mskNascmCad.Text = dr["data_nascm"].ToString();
                     mskCellCad.Text = dr["celular"].ToString();
                     txtSenhaCad.Text = dr["senha"].ToString();
+
+                    if (dr["excluido"].ToString() == "False")
+                        btnExcReat.Text = "&Excluir Paciente";
+                    else
+                        btnExcReat.Text = "&Reativar Paciente";
 
                     tabMedico.SelectedIndex = 4;
 
@@ -724,9 +797,161 @@ namespace Belpre
 
         private void EfetuarAlteracao()
         {
-            //aaaa
+            try
+            {
+                List<object> param = new List<object>();
 
-            //nao esquecer que senha = criptografada
+                string sql;
+
+                //Campo NOME
+                if (!String.IsNullOrWhiteSpace(txtNomeCad.Text))
+                    param.Add(txtNomeCad.Text);
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo SOBRENOME
+                if (!String.IsNullOrWhiteSpace(txtSobreCad.Text))
+                    param.Add(txtSobreCad.Text);
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo SEXO
+                if (radFemCad.Checked)
+                    param.Add("F");
+                else if (radMascCad.Checked)
+                    param.Add("M");
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo NASCIMENTO
+                if (!String.IsNullOrWhiteSpace(mskNascmCad.Text))
+                {
+                    try
+                    {
+                        CultureInfo culture = new CultureInfo("pt-BR");
+                        DateTime data_com_hora = Convert.ToDateTime(mskNascmCad.Text, culture);
+
+                        param.Add(data_com_hora.Date);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+                //Campo CELULAR
+                if (!String.IsNullOrWhiteSpace(mskCellCad.Text))
+                {
+                    mskCellCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+                    param.Add(Convert.ToInt64(mskCellCad.Text));
+
+                    mskCellCad.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+
+                int tam = txtSenhaCad.Text.Length;
+
+                //Campo SENHA
+                if (!String.IsNullOrWhiteSpace(txtSenhaCad.Text) && tam != 32)
+                    param.Add(cripto.RetornarMD5(txtSenhaCad.Text));
+                else if (!String.IsNullOrWhiteSpace(txtSenhaCad.Text) && tam == 32)
+                    param.Add(txtSenhaCad.Text);
+                else
+                {
+                    ErroPreenchimento();
+                    return;
+                }
+
+                mskCPFCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                param.Add(Convert.ToInt64(mskCPFCad.Text));
+                mskCPFCad.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                //Salva no banco de dados
+                sql = "UPDATE pacientes SET " +
+                        "nome=@1, " +
+                        "sobrenome=@2, " +
+                        "sexo=@3, " +
+                        "data_nascm=@4, " +
+                        "celular=@5, " +
+                        "senha=@6 " +
+                            "WHERE cpf=@7";
+
+                conexao.Run(sql, param);
+
+                MessageBox.Show("Usuário alterado com sucesso!\n", "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpaCamposCadastro();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcReat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<object> param = new List<object>();
+                string op, sql;
+
+                if (btnExcReat.Text == "&Excluir Paciente")
+                    op = "excluir";
+                else
+                    op = "reativar";
+
+                DialogResult resp = MessageBox.Show("Deseja realmente " + op + " " + txtNomeCad.Text + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resp == DialogResult.Yes)
+                {
+                    //O estado do paciente
+                    if (op == "excluir")
+                        param.Add(true);
+                    else
+                        param.Add(false);
+
+                    //pega o cpf
+                    mskCPFCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    param.Add(Convert.ToInt64(mskCPFCad.Text));
+                    mskCPFCad.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                    sql = "UPDATE pacientes SET " +
+                            "excluido=@1 " +
+                            "WHERE cpf=@2";
+
+                    conexao.Run(sql, param);
+
+                    MessageBox.Show("Usuário alterado com sucesso!\n", "Belpre",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpaCamposCadastro();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro!\nMais informações: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //--------------------------------GLOBAL FUNCTIONS----------------------------------------//
@@ -743,37 +968,24 @@ namespace Belpre
 
             hoje = DateTime.Now.ToString("dd-MM-yyyy");
 
-            sql = "SELECT COUNT(id_cons) FROM consultas WHERE data_cons='" + hoje + "'";
+            sql = "SELECT COUNT(id_cons) FROM consultas" +
+                " WHERE data_cons='" + hoje + "'" +
+                " AND id_med='" + id_med + "'";
 
             NpgsqlDataReader dr = conexao.Select(sql);
 
             if (dr.Read())
-                lblConsultas.Text = dr["count"].ToString() + " Consultas!";
+            {
+                if(dr["count"].ToString() == "1")
+                    lblConsultas.Text = dr["count"].ToString() + " atendimento!";
+                else
+                    lblConsultas.Text = dr["count"].ToString() + " atendimentos!";
+            }
             else
                 lblConsultas.Text = "0 Consultas!";
 
             dr.Close();
         }
-
-        //--------------------------------------------------------------------------------------//
-
-        /*
-        try
-        {
-            Int64 cpf = Convert.ToInt64(dgvConsulta.Rows[dgvConsulta.CurrentRow.Index].Cells[3].Value);
-
-            mskCPFAlt.Text = cpf.ToString();
-            tabAdmin.SelectedIndex = 3;
-
-            mskCPFAlt_Validating(mskCPFAlt.Text, new CancelEventArgs());
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-        */
 
         //--------------------------------------------------------------------------------------//
     }

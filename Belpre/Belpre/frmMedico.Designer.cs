@@ -64,6 +64,9 @@
             this.grpTerca = new System.Windows.Forms.GroupBox();
             this.dgvTer = new System.Windows.Forms.DataGridView();
             this.tabConsulta = new System.Windows.Forms.TabPage();
+            this.radRetorno = new System.Windows.Forms.RadioButton();
+            this.radConsulta = new System.Windows.Forms.RadioButton();
+            this.lblTipo = new System.Windows.Forms.Label();
             this.grpAtalhos = new System.Windows.Forms.GroupBox();
             this.btnToday = new System.Windows.Forms.Button();
             this.btnSemanaqvem = new System.Windows.Forms.Button();
@@ -85,12 +88,25 @@
             this.lblPaciente = new System.Windows.Forms.Label();
             this.picConsulta = new System.Windows.Forms.PictureBox();
             this.tabPac = new System.Windows.Forms.TabPage();
+            this.lblQtdRetorno = new System.Windows.Forms.Label();
             this.lblRetorno = new System.Windows.Forms.Label();
+            this.lblQtdConsu = new System.Windows.Forms.Label();
+            this.lblConsult = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblQtdExcluidos = new System.Windows.Forms.Label();
+            this.lblExcluidos = new System.Windows.Forms.Label();
+            this.lblQtdAtivos = new System.Windows.Forms.Label();
+            this.lblEstat = new System.Windows.Forms.Label();
+            this.chkExcluidos = new System.Windows.Forms.CheckBox();
+            this.chkNaoExcluidos = new System.Windows.Forms.CheckBox();
+            this.lblFiltros = new System.Windows.Forms.Label();
             this.lblAtivos = new System.Windows.Forms.Label();
             this.picReload = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.tabCadAlt = new System.Windows.Forms.TabPage();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnExcReat = new System.Windows.Forms.Button();
             this.mskNascmCad = new System.Windows.Forms.MaskedTextBox();
             this.mskCellCad = new System.Windows.Forms.MaskedTextBox();
             this.mskCPFCad = new System.Windows.Forms.MaskedTextBox();
@@ -109,12 +125,6 @@
             this.lblSobrCad = new System.Windows.Forms.Label();
             this.lblNomeCad = new System.Windows.Forms.Label();
             this.picCadastro = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.radConsulta = new System.Windows.Forms.RadioButton();
-            this.radRetorno = new System.Windows.Forms.RadioButton();
-            this.btnExcReat = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.tabMedico.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMedicoa)).BeginInit();
@@ -199,11 +209,11 @@
             // 
             this.lblVocePossui.AutoSize = true;
             this.lblVocePossui.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVocePossui.Location = new System.Drawing.Point(453, 222);
+            this.lblVocePossui.Location = new System.Drawing.Point(459, 222);
             this.lblVocePossui.Name = "lblVocePossui";
-            this.lblVocePossui.Size = new System.Drawing.Size(184, 29);
+            this.lblVocePossui.Size = new System.Drawing.Size(178, 29);
             this.lblVocePossui.TabIndex = 4;
-            this.lblVocePossui.Text = "Hoje você possui:";
+            this.lblVocePossui.Text = "Hoje você possui";
             // 
             // lblData
             // 
@@ -566,7 +576,6 @@
             this.tabConsulta.Controls.Add(this.radRetorno);
             this.tabConsulta.Controls.Add(this.radConsulta);
             this.tabConsulta.Controls.Add(this.lblTipo);
-            this.tabConsulta.Controls.Add(this.label1);
             this.tabConsulta.Controls.Add(this.grpAtalhos);
             this.tabConsulta.Controls.Add(this.cmbIDOculto);
             this.tabConsulta.Controls.Add(this.cmbPacientes);
@@ -590,6 +599,40 @@
             this.tabConsulta.TabIndex = 3;
             this.tabConsulta.Text = "Agendar Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
+            // 
+            // radRetorno
+            // 
+            this.radRetorno.AutoSize = true;
+            this.radRetorno.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radRetorno.Location = new System.Drawing.Point(292, 326);
+            this.radRetorno.Name = "radRetorno";
+            this.radRetorno.Size = new System.Drawing.Size(96, 28);
+            this.radRetorno.TabIndex = 31;
+            this.radRetorno.TabStop = true;
+            this.radRetorno.Text = "&Retorno";
+            this.radRetorno.UseVisualStyleBackColor = true;
+            // 
+            // radConsulta
+            // 
+            this.radConsulta.AutoSize = true;
+            this.radConsulta.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radConsulta.Location = new System.Drawing.Point(179, 326);
+            this.radConsulta.Name = "radConsulta";
+            this.radConsulta.Size = new System.Drawing.Size(102, 28);
+            this.radConsulta.TabIndex = 30;
+            this.radConsulta.TabStop = true;
+            this.radConsulta.Text = "&Consulta";
+            this.radConsulta.UseVisualStyleBackColor = true;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(93, 326);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(65, 25);
+            this.lblTipo.TabIndex = 29;
+            this.lblTipo.Text = "Tipo:";
             // 
             // grpAtalhos
             // 
@@ -818,7 +861,18 @@
             // 
             // tabPac
             // 
+            this.tabPac.Controls.Add(this.lblQtdRetorno);
             this.tabPac.Controls.Add(this.lblRetorno);
+            this.tabPac.Controls.Add(this.lblQtdConsu);
+            this.tabPac.Controls.Add(this.lblConsult);
+            this.tabPac.Controls.Add(this.label3);
+            this.tabPac.Controls.Add(this.lblQtdExcluidos);
+            this.tabPac.Controls.Add(this.lblExcluidos);
+            this.tabPac.Controls.Add(this.lblQtdAtivos);
+            this.tabPac.Controls.Add(this.lblEstat);
+            this.tabPac.Controls.Add(this.chkExcluidos);
+            this.tabPac.Controls.Add(this.chkNaoExcluidos);
+            this.tabPac.Controls.Add(this.lblFiltros);
             this.tabPac.Controls.Add(this.lblAtivos);
             this.tabPac.Controls.Add(this.picReload);
             this.tabPac.Controls.Add(this.label2);
@@ -830,23 +884,139 @@
             this.tabPac.Text = "Meus Pacientes";
             this.tabPac.UseVisualStyleBackColor = true;
             // 
+            // lblQtdRetorno
+            // 
+            this.lblQtdRetorno.AutoSize = true;
+            this.lblQtdRetorno.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdRetorno.Location = new System.Drawing.Point(779, 401);
+            this.lblQtdRetorno.Name = "lblQtdRetorno";
+            this.lblQtdRetorno.Size = new System.Drawing.Size(28, 23);
+            this.lblQtdRetorno.TabIndex = 25;
+            this.lblQtdRetorno.Text = "xx";
+            // 
             // lblRetorno
             // 
             this.lblRetorno.AutoSize = true;
-            this.lblRetorno.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRetorno.Location = new System.Drawing.Point(736, 408);
+            this.lblRetorno.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetorno.Location = new System.Drawing.Point(608, 401);
             this.lblRetorno.Name = "lblRetorno";
-            this.lblRetorno.Size = new System.Drawing.Size(136, 15);
-            this.lblRetorno.TabIndex = 12;
-            this.lblRetorno.Text = "Pacitentes com Retorno";
+            this.lblRetorno.Size = new System.Drawing.Size(161, 23);
+            this.lblRetorno.TabIndex = 24;
+            this.lblRetorno.Text = "Retornos Marcados";
+            // 
+            // lblQtdConsu
+            // 
+            this.lblQtdConsu.AutoSize = true;
+            this.lblQtdConsu.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdConsu.Location = new System.Drawing.Point(779, 369);
+            this.lblQtdConsu.Name = "lblQtdConsu";
+            this.lblQtdConsu.Size = new System.Drawing.Size(28, 23);
+            this.lblQtdConsu.TabIndex = 23;
+            this.lblQtdConsu.Text = "xx";
+            // 
+            // lblConsult
+            // 
+            this.lblConsult.AutoSize = true;
+            this.lblConsult.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsult.Location = new System.Drawing.Point(604, 369);
+            this.lblConsult.Name = "lblConsult";
+            this.lblConsult.Size = new System.Drawing.Size(165, 23);
+            this.lblConsult.TabIndex = 22;
+            this.lblConsult.Text = "Consultas Marcadas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(618, 324);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(211, 36);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Sobre Consultas";
+            // 
+            // lblQtdExcluidos
+            // 
+            this.lblQtdExcluidos.AutoSize = true;
+            this.lblQtdExcluidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdExcluidos.Location = new System.Drawing.Point(782, 247);
+            this.lblQtdExcluidos.Name = "lblQtdExcluidos";
+            this.lblQtdExcluidos.Size = new System.Drawing.Size(28, 23);
+            this.lblQtdExcluidos.TabIndex = 20;
+            this.lblQtdExcluidos.Text = "xx";
+            // 
+            // lblExcluidos
+            // 
+            this.lblExcluidos.AutoSize = true;
+            this.lblExcluidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExcluidos.Location = new System.Drawing.Point(605, 247);
+            this.lblExcluidos.Name = "lblExcluidos";
+            this.lblExcluidos.Size = new System.Drawing.Size(164, 23);
+            this.lblExcluidos.TabIndex = 19;
+            this.lblExcluidos.Text = "Pacitentes Excluídos";
+            // 
+            // lblQtdAtivos
+            // 
+            this.lblQtdAtivos.AutoSize = true;
+            this.lblQtdAtivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdAtivos.Location = new System.Drawing.Point(782, 215);
+            this.lblQtdAtivos.Name = "lblQtdAtivos";
+            this.lblQtdAtivos.Size = new System.Drawing.Size(28, 23);
+            this.lblQtdAtivos.TabIndex = 17;
+            this.lblQtdAtivos.Text = "xx";
+            // 
+            // lblEstat
+            // 
+            this.lblEstat.AutoSize = true;
+            this.lblEstat.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstat.Location = new System.Drawing.Point(618, 167);
+            this.lblEstat.Name = "lblEstat";
+            this.lblEstat.Size = new System.Drawing.Size(208, 36);
+            this.lblEstat.TabIndex = 16;
+            this.lblEstat.Text = "Sobre Pacientes";
+            // 
+            // chkExcluidos
+            // 
+            this.chkExcluidos.AutoSize = true;
+            this.chkExcluidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkExcluidos.Location = new System.Drawing.Point(672, 92);
+            this.chkExcluidos.Name = "chkExcluidos";
+            this.chkExcluidos.Size = new System.Drawing.Size(100, 27);
+            this.chkExcluidos.TabIndex = 15;
+            this.chkExcluidos.Text = "Excluídos";
+            this.chkExcluidos.UseVisualStyleBackColor = true;
+            this.chkExcluidos.CheckedChanged += new System.EventHandler(this.chkExcluidos_CheckedChanged);
+            // 
+            // chkNaoExcluidos
+            // 
+            this.chkNaoExcluidos.AutoSize = true;
+            this.chkNaoExcluidos.Checked = true;
+            this.chkNaoExcluidos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNaoExcluidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNaoExcluidos.Location = new System.Drawing.Point(672, 63);
+            this.chkNaoExcluidos.Name = "chkNaoExcluidos";
+            this.chkNaoExcluidos.Size = new System.Drawing.Size(78, 27);
+            this.chkNaoExcluidos.TabIndex = 14;
+            this.chkNaoExcluidos.Text = "Ativos";
+            this.chkNaoExcluidos.UseVisualStyleBackColor = true;
+            this.chkNaoExcluidos.CheckedChanged += new System.EventHandler(this.chkExcluidos_CheckedChanged);
+            // 
+            // lblFiltros
+            // 
+            this.lblFiltros.AutoSize = true;
+            this.lblFiltros.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltros.Location = new System.Drawing.Point(679, 15);
+            this.lblFiltros.Name = "lblFiltros";
+            this.lblFiltros.Size = new System.Drawing.Size(90, 36);
+            this.lblFiltros.TabIndex = 13;
+            this.lblFiltros.Text = "Filtros";
             // 
             // lblAtivos
             // 
             this.lblAtivos.AutoSize = true;
-            this.lblAtivos.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAtivos.Location = new System.Drawing.Point(575, 408);
+            this.lblAtivos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAtivos.Location = new System.Drawing.Point(627, 215);
             this.lblAtivos.Name = "lblAtivos";
-            this.lblAtivos.Size = new System.Drawing.Size(100, 15);
+            this.lblAtivos.Size = new System.Drawing.Size(142, 23);
             this.lblAtivos.TabIndex = 11;
             this.lblAtivos.Text = "Pacitentes Ativos";
             // 
@@ -863,12 +1033,12 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(477, 29);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Para mais informações, duplo clique no ID desejado";
+            this.label2.Text = "Para mais informações, duplo clique na LINHA desejada";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvConsulta
@@ -915,6 +1085,28 @@
             this.tabCadAlt.TabIndex = 1;
             this.tabCadAlt.Text = "Cadastro/Alteração Paciente";
             this.tabCadAlt.UseVisualStyleBackColor = true;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(639, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(118, 29);
+            this.lblTitle.TabIndex = 18;
+            this.lblTitle.Text = "*Cadasto*";
+            // 
+            // btnExcReat
+            // 
+            this.btnExcReat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcReat.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnExcReat.Location = new System.Drawing.Point(611, 414);
+            this.btnExcReat.Name = "btnExcReat";
+            this.btnExcReat.Size = new System.Drawing.Size(163, 42);
+            this.btnExcReat.TabIndex = 17;
+            this.btnExcReat.Text = "&Excluir Paciente";
+            this.btnExcReat.UseVisualStyleBackColor = true;
+            this.btnExcReat.Click += new System.EventHandler(this.btnExcReat_Click);
             // 
             // mskNascmCad
             // 
@@ -1097,82 +1289,18 @@
             this.picCadastro.TabIndex = 0;
             this.picCadastro.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(546, 446);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "label1";
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(93, 326);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(65, 25);
-            this.lblTipo.TabIndex = 29;
-            this.lblTipo.Text = "Tipo:";
-            // 
-            // radConsulta
-            // 
-            this.radConsulta.AutoSize = true;
-            this.radConsulta.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radConsulta.Location = new System.Drawing.Point(179, 326);
-            this.radConsulta.Name = "radConsulta";
-            this.radConsulta.Size = new System.Drawing.Size(102, 28);
-            this.radConsulta.TabIndex = 30;
-            this.radConsulta.TabStop = true;
-            this.radConsulta.Text = "&Consulta";
-            this.radConsulta.UseVisualStyleBackColor = true;
-            // 
-            // radRetorno
-            // 
-            this.radRetorno.AutoSize = true;
-            this.radRetorno.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radRetorno.Location = new System.Drawing.Point(292, 326);
-            this.radRetorno.Name = "radRetorno";
-            this.radRetorno.Size = new System.Drawing.Size(96, 28);
-            this.radRetorno.TabIndex = 31;
-            this.radRetorno.TabStop = true;
-            this.radRetorno.Text = "&Retorno";
-            this.radRetorno.UseVisualStyleBackColor = true;
-            // 
-            // btnExcReat
-            // 
-            this.btnExcReat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcReat.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btnExcReat.Location = new System.Drawing.Point(611, 414);
-            this.btnExcReat.Name = "btnExcReat";
-            this.btnExcReat.Size = new System.Drawing.Size(163, 42);
-            this.btnExcReat.TabIndex = 17;
-            this.btnExcReat.Text = "&Excluir";
-            this.btnExcReat.UseVisualStyleBackColor = true;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(639, 11);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(118, 29);
-            this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "*Cadasto*";
-            // 
             // frmMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 531);
+            this.ClientSize = new System.Drawing.Size(934, 531);
             this.Controls.Add(this.tabMedico);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMedico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home";
+            this.Text = "Área Médica";
             this.tabMedico.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
             this.tabHome.PerformLayout();
@@ -1231,7 +1359,6 @@
         private System.Windows.Forms.GroupBox grpQuarta;
         private System.Windows.Forms.GroupBox grpTerca;
         private System.Windows.Forms.GroupBox grpSeg;
-        private System.Windows.Forms.Label lblRetorno;
         private System.Windows.Forms.Label lblAtivos;
         private System.Windows.Forms.Label lblDomingo;
         private System.Windows.Forms.Label lblSabado;
@@ -1292,11 +1419,22 @@
         private System.Windows.Forms.Button btnSemanaqvem;
         private System.Windows.Forms.Button btnAmanha;
         private System.Windows.Forms.Button btnToday;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radRetorno;
         private System.Windows.Forms.RadioButton radConsulta;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnExcReat;
+        private System.Windows.Forms.Label lblFiltros;
+        private System.Windows.Forms.Label lblQtdAtivos;
+        private System.Windows.Forms.Label lblEstat;
+        private System.Windows.Forms.CheckBox chkExcluidos;
+        private System.Windows.Forms.CheckBox chkNaoExcluidos;
+        private System.Windows.Forms.Label lblQtdRetorno;
+        private System.Windows.Forms.Label lblRetorno;
+        private System.Windows.Forms.Label lblQtdConsu;
+        private System.Windows.Forms.Label lblConsult;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblQtdExcluidos;
+        private System.Windows.Forms.Label lblExcluidos;
     }
 }
