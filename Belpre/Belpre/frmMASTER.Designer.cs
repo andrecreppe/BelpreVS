@@ -78,6 +78,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.picAlt = new System.Windows.Forms.PictureBox();
+            this.grpFiltros = new System.Windows.Forms.GroupBox();
+            this.chkExcluidos = new System.Windows.Forms.CheckBox();
+            this.chkAtivos = new System.Windows.Forms.CheckBox();
             this.tabAdmin.SuspendLayout();
             this.tabHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmin)).BeginInit();
@@ -88,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.tabAltPesq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlt)).BeginInit();
+            this.grpFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -355,6 +359,7 @@
             // 
             // tabConsulta
             // 
+            this.tabConsulta.Controls.Add(this.grpFiltros);
             this.tabConsulta.Controls.Add(this.picReload);
             this.tabConsulta.Controls.Add(this.label1);
             this.tabConsulta.Controls.Add(this.dgvConsulta);
@@ -368,9 +373,9 @@
             // picReload
             // 
             this.picReload.Image = ((System.Drawing.Image)(resources.GetObject("picReload.Image")));
-            this.picReload.Location = new System.Drawing.Point(392, 394);
+            this.picReload.Location = new System.Drawing.Point(389, 353);
             this.picReload.Name = "picReload";
-            this.picReload.Size = new System.Drawing.Size(55, 27);
+            this.picReload.Size = new System.Drawing.Size(55, 63);
             this.picReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picReload.TabIndex = 7;
             this.picReload.TabStop = false;
@@ -395,7 +400,7 @@
             this.dgvConsulta.Location = new System.Drawing.Point(3, 3);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.Size = new System.Drawing.Size(444, 388);
+            this.dgvConsulta.Size = new System.Drawing.Size(444, 331);
             this.dgvConsulta.TabIndex = 0;
             this.dgvConsulta.DoubleClick += new System.EventHandler(this.dgvConsulta_DoubleClick);
             // 
@@ -629,6 +634,44 @@
             this.picAlt.TabIndex = 63;
             this.picAlt.TabStop = false;
             // 
+            // grpFiltros
+            // 
+            this.grpFiltros.Controls.Add(this.chkAtivos);
+            this.grpFiltros.Controls.Add(this.chkExcluidos);
+            this.grpFiltros.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpFiltros.Location = new System.Drawing.Point(7, 340);
+            this.grpFiltros.Name = "grpFiltros";
+            this.grpFiltros.Size = new System.Drawing.Size(377, 51);
+            this.grpFiltros.TabIndex = 8;
+            this.grpFiltros.TabStop = false;
+            this.grpFiltros.Text = "Filtros";
+            // 
+            // chkExcluidos
+            // 
+            this.chkExcluidos.AutoSize = true;
+            this.chkExcluidos.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkExcluidos.Location = new System.Drawing.Point(142, 19);
+            this.chkExcluidos.Name = "chkExcluidos";
+            this.chkExcluidos.Size = new System.Drawing.Size(89, 23);
+            this.chkExcluidos.TabIndex = 0;
+            this.chkExcluidos.Text = "Excluídos";
+            this.chkExcluidos.UseVisualStyleBackColor = true;
+            this.chkExcluidos.CheckedChanged += new System.EventHandler(this.chkExcluidos_CheckedChanged);
+            // 
+            // chkAtivos
+            // 
+            this.chkAtivos.AutoSize = true;
+            this.chkAtivos.Checked = true;
+            this.chkAtivos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivos.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAtivos.Location = new System.Drawing.Point(58, 18);
+            this.chkAtivos.Name = "chkAtivos";
+            this.chkAtivos.Size = new System.Drawing.Size(68, 23);
+            this.chkAtivos.TabIndex = 1;
+            this.chkAtivos.Text = "Ativos";
+            this.chkAtivos.UseVisualStyleBackColor = true;
+            this.chkAtivos.CheckedChanged += new System.EventHandler(this.chkAtivos_CheckedChanged);
+            // 
             // frmMASTER
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +695,8 @@
             this.tabAltPesq.ResumeLayout(false);
             this.tabAltPesq.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlt)).EndInit();
+            this.grpFiltros.ResumeLayout(false);
+            this.grpFiltros.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -707,5 +752,8 @@
         private System.Windows.Forms.MaskedTextBox mskCPFAlt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnEstado;
+        private System.Windows.Forms.GroupBox grpFiltros;
+        private System.Windows.Forms.CheckBox chkAtivos;
+        private System.Windows.Forms.CheckBox chkExcluidos;
     }
 }

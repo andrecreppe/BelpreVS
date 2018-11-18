@@ -41,10 +41,23 @@ namespace Belpre
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            frmLogin frm = new frmLogin();
-            this.Hide();
-            frm.ShowDialog();
-            this.Close();
+            DialogResult resp;
+
+            if (lblSexo.Text == "Masculino")
+                resp = MessageBox.Show("Deseja mesmo sair Sr. " + lblNome.Text + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            else
+                resp = MessageBox.Show("Deseja mesmo sair Sra. " + lblNome.Text + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resp == DialogResult.Yes)
+            {
+                frmLogin frm = new frmLogin();
+
+                this.Hide();
+                frm.ShowDialog();
+                this.Close();
+            }
         }
 
         //------------------------------------MEUS DADOS-----------------------------------//

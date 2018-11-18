@@ -112,10 +112,23 @@ namespace Belpre
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            frmLogin frm = new frmLogin();
-            this.Hide();
-            frm.ShowDialog();
-            this.Close();
+            DialogResult resp;
+
+            if(sexo == "m")
+                resp = MessageBox.Show("Deseja mesmo sair Dr. " + logado + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            else
+                resp = MessageBox.Show("Deseja mesmo sair Dra. " + logado + "?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resp == DialogResult.Yes)
+            {
+                frmLogin frm = new frmLogin();
+
+                this.Hide();
+                frm.ShowDialog();
+                this.Close();
+            }
         }
 
         //--------------------------------------AGENDA----------------------------------------//
@@ -966,13 +979,18 @@ namespace Belpre
         {
             string hoje, sql;
 
+            List<object> param = new List<object>();
+
             hoje = DateTime.Now.ToString("dd-MM-yyyy");
 
             sql = "SELECT COUNT(id_cons) FROM consultas" +
-                " WHERE data_cons='" + hoje + "'" +
-                " AND id_med='" + id_med + "'";
+                " WHERE data_cons=@1" +
+                " AND id_med=@2";
 
-            NpgsqlDataReader dr = conexao.Select(sql);
+            param.Add(Convert.ToDateTime(hoje));
+            param.Add(Convert.ToInt32(id_med));
+
+            NpgsqlDataReader dr = conexao.Select(sql, param);
 
             if (dr.Read())
             {

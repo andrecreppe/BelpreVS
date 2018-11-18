@@ -68,9 +68,11 @@ namespace Belpre
                 string cpf, sql;
                 string senha, excluido, nome, sexo, id;
 
+                List<object> param = new List<object>();
+
                 //Pegar o CPF
                 mskCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                cpf = mskCPF.Text;
+                    cpf = mskCPF.Text;
                 mskCPF.TextMaskFormat = MaskFormat.IncludeLiterals;
 
                 //Login do adm mestre -> Cadastro dos médicos
@@ -86,11 +88,17 @@ namespace Belpre
 
                 //Teste de usuários normais
                 if (radPaciente.Checked)
-                    sql = "SELECT * FROM pacientes WHERE cpf=" + cpf;
+                {
+                    sql = "SELECT * FROM pacientes WHERE cpf=@1";
+                    param.Add(Convert.ToInt64(cpf));
+                }
                 else
-                    sql = "SELECT * FROM medicos WHERE cpf=" + cpf;
+                {
+                    sql = "SELECT * FROM medicos WHERE cpf=@1";
+                    param.Add(Convert.ToInt64(cpf));
+                }
 
-                NpgsqlDataReader dr = conexao.Select(sql);
+                NpgsqlDataReader dr = conexao.Select(sql, param);
                 if (dr.Read())
                 {
                     //Campos de análise

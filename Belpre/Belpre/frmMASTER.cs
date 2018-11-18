@@ -30,27 +30,10 @@ namespace Belpre
 
         private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            //Se a selecionada é a consulta
+            if (tabAdmin.SelectedTab.Name == "tabConsulta")
             {
-                //Se a selecionada é a consulta
-                if (tabAdmin.SelectedTab.Name == "tabConsulta")
-                {
-                    string sql = "SELECT id_med, nome, sobrenome, cpf" +
-                        " FROM medicos " +
-                        "ORDER BY id_med;";
-
-                    DataSet ds = new DataSet();
-                    ds = conexao.SelectDataSet(sql);
-
-                    //Carregar o grid com os dados do DatSet
-                    dgvConsulta.DataSource = ds.Tables[0];
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                LoadMedicos();
             }
         }
 
@@ -58,10 +41,17 @@ namespace Belpre
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            frmLogin login = new frmLogin();
-            this.Hide();
-            login.ShowDialog();
-            this.Close();
+            DialogResult resp = MessageBox.Show("Deseja mesmo sair do modo de Administrador?", "Belpre",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resp == DialogResult.Yes)
+            {
+                frmLogin frm = new frmLogin();
+
+                this.Hide();
+                frm.ShowDialog();
+                this.Close();
+            }
         }
 
         //---------------------------------------CADASTRAR----------------------------------------------------//
@@ -213,6 +203,60 @@ namespace Belpre
 
         //---------------------------------------CONSULTA MEDICOS-------------------------------------------//
 
+        private void chkAtivos_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadMedicos();
+        }
+
+        private void chkExcluidos_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadMedicos();
+        }
+
+        private void LoadMedicos()
+        {
+            string sql="";
+
+            bool vai = true;
+
+            dgvConsulta.DataSource = null;
+
+            try
+            {
+                if (chkAtivos.Checked && chkExcluidos.Checked)
+                    sql = "SELECT id_med, nome, sobrenome, cpf" +
+                    " FROM medicos" +
+                    " ORDER BY id_med";
+                else if (!chkAtivos.Checked && chkExcluidos.Checked)
+                    sql = "SELECT id_med, nome, sobrenome, cpf" +
+                    " FROM medicos" +
+                    " WHERE excluido='True'" +
+                    " ORDER BY id_med";
+                else if (chkAtivos.Checked && !chkExcluidos.Checked)
+                    sql = "SELECT id_med, nome, sobrenome, cpf" +
+                    " FROM medicos" +
+                    " WHERE excluido='False'" +
+                    " ORDER BY id_med";
+                else
+                    vai = false;
+
+                if (vai)
+                {
+                    DataSet ds = new DataSet();
+                    ds = conexao.SelectDataSet(sql);
+
+                    //Carregar o grid com os dados do DatSet
+                    dgvConsulta.DataSource = ds.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro no Programa!" + "\nMais Opções: " + ex.Message, "Belpre",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
         private void dgvConsulta_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -234,10 +278,7 @@ namespace Belpre
 
         private void picReload_Click(object sender, EventArgs e)
         {
-            dgvConsulta.Refresh();
-            dgvConsulta.DataSource = null;
-
-            tabAdmin_SelectedIndexChanged(sender, new CancelEventArgs());
+            LoadMedicos();
         }
 
         //--------------------------------------------ALTERAÇÃO MEDICOS----------------------------------------------//
